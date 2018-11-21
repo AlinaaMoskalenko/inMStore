@@ -1,0 +1,51 @@
+.card {
+  max-width: 320px;
+  width: 100%;
+  margin: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 4px;
+  box-shadow: 4px 4px 6px rgba(207, 207, 207, 0.5); //по х, по у, размытость и растяжение по 15px, цвет
+  &__content {
+    --mdc-ripple-fg-size: 300px;
+    --mdc-ripple-fg-scale: 2.34115;
+    --mdc-ripple-fg-translate-start: 320px, 401px;
+    --mdc-ripple-fg-translate-end: 60px, 60px;
+  }
+  &__image {
+    height: 280px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  &__text {
+    padding: 15px 25px;
+  }
+  &__title {
+    font-size: 21px;
+    font-weight: 500;
+    font-style: normal;
+    color: rgb(45, 35, 52);
+  }
+  &__description {
+    margin-top: 15px;
+    text-align: justify;
+    color: rgb(45, 35, 52);
+  }
+  &__button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 25px;
+  }
+}
+
+.action {
+  &__btn {
+    border: none;
+  }
+  &__add-to-wishlist {
+    color: #8300ee;
+  }
+}
