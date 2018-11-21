@@ -1,14 +1,14 @@
 {
-  "main.css": "/inMStore/static/css/main.5a5416b3.chunk.css",
-  "main.js": "/inMStore/static/js/main.8dfb924c.chunk.js",
-  "main.js.map": "/inMStore/static/js/main.8dfb924c.chunk.js.map",
-  "static/js/1.2dd891c4.chunk.js": "/inMStore/static/js/1.2dd891c4.chunk.js",
-  "static/js/1.2dd891c4.chunk.js.map": "/inMStore/static/js/1.2dd891c4.chunk.js.map",
+  "main.css": "/inMStore/static/css/main.77c073fe.chunk.css",
+  "main.js": "/inMStore/static/js/main.31e400de.chunk.js",
+  "main.js.map": "/inMStore/static/js/main.31e400de.chunk.js.map",
+  "static/js/1.0cd6058f.chunk.js": "/inMStore/static/js/1.0cd6058f.chunk.js",
+  "static/js/1.0cd6058f.chunk.js.map": "/inMStore/static/js/1.0cd6058f.chunk.js.map",
   "runtime~main.js": "/inMStore/static/js/runtime~main.5fd98fad.js",
   "runtime~main.js.map": "/inMStore/static/js/runtime~main.5fd98fad.js.map",
-  "static/media/logo.svg": "/inMStore/static/media/logo.5d5d9eef.svg",
-  "static/css/main.5a5416b3.chunk.css.map": "/inMStore/static/css/main.5a5416b3.chunk.css.map",
+  "static/media/index.scss": "/inMStore/static/media/Robotoblackitalic.548e05d3.woff",
+  "static/css/main.77c073fe.chunk.css.map": "/inMStore/static/css/main.77c073fe.chunk.css.map",
   "index.html": "/inMStore/index.html",
-  "precache-manifest.c249a2a8dbb56459cda853eca9b7daf6.js": "/inMStore/precache-manifest.c249a2a8dbb56459cda853eca9b7daf6.js",
+  "precache-manifest.6744d133c7ffefe4eb004d78beb7494f.js": "/inMStore/precache-manifest.6744d133c7ffefe4eb004d78beb7494f.js",
   "service-worker.js": "/inMStore/service-worker.js"
 }
