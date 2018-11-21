@@ -1,5 +1,44 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## How to add sass in the project
+
+1. Run: 
+
+### `npm install`
+
+2. Then you must save all changes and commit them in the github.
+
+3. Run next command in the cmd and check "yes" (y):
+
+### `npm run eject` 
+
+4. Run: 
+
+### `npm i -g sass`
+
+5. Run: 
+
+### `npm i sass-loader node-sass -save`
+
+6. In the next step in a webpack.config.dev.js insert:
+
+{
+    test: /\.sass$/,
+    loaders: [
+        require.resolve('style-loader'),
+        require.resolve('css-loader'),
+        require.resolve('sass-loader')
+    ]
+},
+
+And in a exclude add /\.sass$/: 
+
+{
+    exclude: [/\.(js|mjs|jsx|ts|tsx)$/, /\.html$/, /\.json$/, /\.sass$/],
+    loader: require.resolve('file-loader'),
+    ...
+}
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -42,3 +81,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
