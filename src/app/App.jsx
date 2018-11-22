@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
-import { Catalog } from './components/catalog/Catalog.jsx'
+import { Catalog } from './components/catalog/Catalog.jsx';
+import { Footer } from './components/footer/Footer.jsx';
 
 class App extends Component {
   render() {
@@ -11,7 +12,9 @@ class App extends Component {
         <main className="App__main">
           <Catalog />
         </main>
-        <footer className="App__footer"></footer>
+        <footer className="App__footer">
+          <Footer />
+        </footer>
       </div>
     );
   }

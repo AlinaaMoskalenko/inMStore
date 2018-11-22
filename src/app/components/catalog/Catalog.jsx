@@ -19,7 +19,7 @@ export class Catalog extends React.Component {
                 return product;
             })
             this.setState((oldState) => Object.assign({}, oldState, { products }));
-        }, (e) => { 
+        }, (e) => {
             console.log(e); //если все плохо, то приходит какой-то callback
         });
     }
@@ -27,7 +27,7 @@ export class Catalog extends React.Component {
     render() {
         console.log(this.state.products);
         return <div className="catalog-content">
-            {this.state.products.map((product, i) => <Card {...product} key={i}/>)}
+            {this.state.products.map((product, i) => <Card {...product} key={i} />)}
         </div>
     }
 }

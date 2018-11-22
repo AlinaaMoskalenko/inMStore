@@ -39,7 +39,7 @@ export class Card extends React.Component {
     }
 
     render() {
-        const { name, description, imgUrl, _id } = this.props;
+        const { name, description, imgUrl, price, _id } = this.props;
 
         const cardImage = {
             backgroundImage: `url(${imgUrl})`
@@ -64,15 +64,14 @@ export class Card extends React.Component {
         });
 
         return <div id={_id} className="card">
-
             <div className={classNamesForCardContent} onClick={this.getDetails}>
                 <div className="card__image" style={cardImage}></div>
                 <div className="card__text">
-                    <div className="card__title">{name}</div>
+                    <h2 className="card__title">{name}</h2>
+                    <div className="card__price">{price}</div>
                     <div className="card__description">{description}</div>
                 </div>
             </div>
-
             <div className="card__button">
                 <div className="main-action">
                     {actionButtons}

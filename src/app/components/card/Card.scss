@@ -1,5 +1,7 @@
+@import "../../../styles/mixins.scss";
+
 .card {
-  max-width: 320px;
+  max-width: 340px;
   width: 100%;
   margin: 50px;
   display: flex;
@@ -7,6 +9,23 @@
   justify-content: space-between;
   border-radius: 4px;
   box-shadow: 4px 4px 6px rgba(207, 207, 207, 0.5); //по х, по у, размытость и растяжение по 15px, цвет
+  @include xs-mobile {
+    margin: 10px 0;
+    @include landscape {
+      max-width: none;
+      flex-basis: 85%;
+    }
+  }
+  @include mobile {
+    @include landscape {
+      max-width: none;
+      margin: 10px;
+      flex-basis: 45%;
+    }
+  }
+  @include tablet {
+    margin: 12.5px 0;
+  }
   &__content {
     --mdc-ripple-fg-size: 300px;
     --mdc-ripple-fg-scale: 2.34115;
@@ -18,20 +37,45 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    @include mobile {
+      @include landscape {
+        height: 180px;
+      }
+    }
   }
   &__text {
     padding: 15px 25px;
   }
   &__title {
-    font-size: 21px;
+    font-size: 20px;
     font-weight: 500;
-    font-style: normal;
-    color: rgb(45, 35, 52);
+    @include mobile {
+      @include landscape {
+        font-size: 19px;
+      }
+    }
+  }
+  &__price {
+    font-size: 17px;
+    margin-top: 10px;
+    &:before {
+      content: "$";
+      margin-right: 5px;
+    }
+    @include mobile {
+      @include landscape {
+        font-size: 16px;
+      }
+    }
   }
   &__description {
     margin-top: 15px;
     text-align: justify;
-    color: rgb(45, 35, 52);
+    @include mobile {
+      @include landscape {
+        font-size: 13px;
+      }
+    }
   }
   &__button {
     display: flex;

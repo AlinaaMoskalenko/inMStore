@@ -1,6 +1,27 @@
-.catalog-content{
-    padding: 50px;
-    display: flex;
+@import "../../../styles/mixins.scss";
+
+.catalog-content {
+  padding: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  @include xs-mobile {
+    padding: 10px 20px;
     justify-content: center;
-    flex-wrap: wrap;
+  }
+  @include mobile {
+    justify-content: space-between;
+    @include landscape {
+      padding: 25px;
+    }
+  }
+  @include tablet {
+    padding: 12.5px 25px;
+    justify-content: space-between;
+  }
+  @include laptop {
+    justify-content: space-between;
+  }
+  @include desktop {
+    padding: 15px;
+  }
 }
