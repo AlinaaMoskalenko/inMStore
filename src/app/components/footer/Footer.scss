@@ -1,9 +1,11 @@
 @import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
 
 .footer {
-  height: 50px;
+  height: $header-footer-height;
   padding: 0 25px;
-  background-color: #8300ee;
+  background-color: $main-color;
+  // background-color: #8300ee;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -24,22 +26,22 @@
   }
 }
 
-.logo {
+.footer__logo {
   display: flex;
   align-items: center;
-  &__icon {
-    width: 35px;
-    height: 30px;
+  .logo {
     background-size: contain;
     background-repeat: no-repeat;
-    background-image: url("../../../assets/logo/white_logo.png");
-    margin-right: 10px;
-  }
-  &__title {
-    width: 98px;
-    height: 19px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-image: url("../../../assets/logo/white_logo_title.png");
+    &__icon {
+      width: 35px;
+      height: 30px;
+      background-image: url("../../../assets/logo/white_logo.png");
+      margin-right: 10px;
+    }
+    &__title {
+      width: 98px;
+      height: 19px;
+      background-image: url("../../../assets/logo/white_logo_title.png");
+    }
   }
 }

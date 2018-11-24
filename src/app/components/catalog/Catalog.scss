@@ -3,6 +3,7 @@
 .catalog-content {
   padding: 50px;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   @include xs-mobile {
     padding: 10px 20px;

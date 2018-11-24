@@ -1,73 +1,58 @@
-$background-color: rgba(4, 4, 73, 0.541);
+@import "../../../styles/variables.scss";
 
 .sidebar {
   visibility: hidden;
-  position: relative;
   width: 0;
-  height: 100%;
-  background-color: $background-color;
+  height: 100vh;
+  border-right: 2px solid $main-color;
   transition: 0.5s;
   &_opened {
     visibility: visible;
-    width: 250px;
-    padding: 0 25px;
+    width: 210px;
+    padding: 15px 51px;
+    .sidebar__items {
+      visibility: visible;
+      opacity: 1;
+      transition-delay: 0.1s;
+    }
   }
   &__toggle {
     visibility: visible;
     position: absolute;
-    right: 0;
-    transform: translateX(100%);
+    transform: translateY(-100%);
+    top: -8px;
+    left: 13px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    height: 35px;
-    width: 35px;
-    background-color: $background-color;
+    height: 48px;
+    width: 48px;
+    padding: 13px;
     cursor: pointer;
-    &_opened {
-      transform: translateX(0);
-      background-color: transparent;
-      transition-delay: 0.2s;
-      transition: transform 0.5s;
-      .toggle__row {
-        &:first-child {
-          transform: rotate(-45deg);
-          top: inherit;
-        }
-        &:last-child {
-          transform: rotate(45deg);
-          top: inherit;
-        }
-      }
-    }
   }
   &__items {
     display: flex;
     flex-direction: column;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
   }
   &__link {
-    color: rgb(255, 255, 255);
+    color: $font-color;
     text-decoration: none;
-    min-width: 150px;
+    min-width: 100px;
     margin: 15px 0;
-    &:first-child {
-      margin-top: 50px;
-    }
     &:hover {
-      color: rgb(0, 0, 0);
+      color: $hover-color;
     }
   }
 }
 
 .toggle__row {
-  position: absolute;
-  border-top: 2px solid rgb(255, 255, 255);
-  width: 15px;
-  &:first-child {
-    top: 10px;
-  }
-  &:last-child {
-    top: 20px;
-  }
+  height: 2px;
+  width: 25px;
+  background-color: rgb(255, 255, 255);
+  border: none;
+  border-radius: 2px;
 }

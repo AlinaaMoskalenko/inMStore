@@ -8,42 +8,13 @@ export class GlobalSidebar extends React.Component {
         this.state = {
             isOpened: false,
         };
-
-        /*
-        Запись объекта не в state
-        this.menu = [
-            {
-                title: 'Mac',
-                href: 'https://www.apple.com/mac/',
-            },
-            {
-                title: 'iPhone',
-                href: 'https://www.apple.com/iphone/',
-            },
-            {
-                title: 'Watch',
-                href: 'https://www.apple.com/watch/',
-            },
-            {
-                title: 'Music',
-                href: 'https://www.apple.com/music/',
-            },
-            {
-                title: 'Support',
-                href: 'https://support.apple.com/',
-            },
-            {
-                title: 'Users comments',
-                href: '/comment_page.html',
-            },
-        ];
-        */
     }
 
     toggleMenu() {
         this.setState((oldState) => {
             const newState = Object.assign({}, oldState);
             newState.isOpened = !oldState.isOpened;
+            this.props.onChangeMode(newState.isOpened);
             return newState;
         });
     }
@@ -56,15 +27,14 @@ export class GlobalSidebar extends React.Component {
         });
 
         let classNames = 'sidebar ';
-        let classToggleNames = 'sidebar__toggle ';
 
         if (this.state.isOpened) {
             classNames += 'sidebar_opened';
-            classToggleNames += 'sidebar__toggle_opened';
         }
 
         return <aside className={classNames}>
-            <div className={classToggleNames} onClick={this.toggleMenu}>
+            <div className="sidebar__toggle mdc-icon-button" onClick={this.toggleMenu}>
+                <div className="toggle__row"></div>
                 <div className="toggle__row"></div>
                 <div className="toggle__row"></div>
             </div>
