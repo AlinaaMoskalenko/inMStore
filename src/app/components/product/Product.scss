@@ -1,0 +1,46 @@
+@import '../../../styles/mixins.scss';
+
+.product{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // &__small-title{
+
+    // }
+    &__conteiner{
+        display: flex;
+    }
+    // &__images{
+
+    // }
+    &__information{
+        display: flex;
+        flex-direction: column;
+    }
+    // &__title{
+
+    // }
+    // &__price{
+
+    // }
+    // &__button{
+
+    // }
+    // &__details{
+
+    // }
+}
+
+// .conteiner{
+//     &__tabs{
+
+//     }
+//     &__content{
+
+//     }
+// }
+
+
+// .image{
+
+// }
