@@ -1,9 +1,11 @@
 import * as React from 'react';
 import './Specifications.scss';
 
+const CHECK_TRUE_TEMPLATE = <div><i className="material-icons">check</i></div>;
+const CHECK_FALSE_TEMPLATE = <div><i className="material-icons">clear</i></div>;
+
 export const Specifications = (props) => {
     const { item, android, battery, camera, connectivity, display, hardware, sizeAndWeight, storage, availability } = props;
-    console.log(item.title);
 
     let data;
     let className = "data__item"
@@ -11,7 +13,7 @@ export const Specifications = (props) => {
     if (item.title === "Android") {
         data = <div>
             {android.ui ? <li className={className}>UI: <div>{android.ui}</div></li> : console.log()}
-            {android.os ? <li className={className}>UI: <div>{android.os}</div></li> : console.log()}
+            {android.os ? <li className={className}>OS: <div>{android.os}</div></li> : console.log()}
         </div>
     }
 
@@ -24,17 +26,21 @@ export const Specifications = (props) => {
     }
 
     if (item.title === "Camera") {
+        let cameraFeatures = (camera.features) ? (typeof camera.features === 'object') ? camera.features.map((item, i) => {
+            return <div key={i}>{item}</div>
+        }) : camera.features : console.log()
+
         data = <div>
             {camera.primary ? <li className={className}>primary: <div>{camera.primary}</div></li> : console.log()}
-            {camera.features ? <li className={className}>features: <div>{camera.features}</div></li> : console.log()}
+            <li className={className}>features: <div>{cameraFeatures}</div></li>
         </div>
     }
 
     if (item.title === "Connectivity") {
         data = <div>
             {connectivity.wifi ? <li className={className}>wifi: <div>{connectivity.wifi}</div></li> : console.log()}
-            {connectivity.infrared ? <li className={className}>infrared: <div>{connectivity.infrared}</div></li> : console.log()}
-            {connectivity.gps ? <li className={className}>gps: <div>{connectivity.gps}</div></li> : console.log()}
+            {connectivity.infrared ? <li className={className}>infrared: {CHECK_TRUE_TEMPLATE}</li> : <li className={className}>infrared: {CHECK_FALSE_TEMPLATE}</li>}
+            {connectivity.gps ? <li className={className}>gps: {CHECK_TRUE_TEMPLATE}</li> : <li className={className}>gps: {CHECK_FALSE_TEMPLATE}</li>}
             {connectivity.cell ? <li className={className}>cell: <div>{connectivity.cell}</div></li> : console.log()}
             {connectivity.bluetooth ? <li className={className}>bluetooth: <div>{connectivity.bluetooth}</div></li> : console.log()}
         </div>
@@ -42,7 +48,7 @@ export const Specifications = (props) => {
 
     if (item.title === "Display") {
         data = <div>
-            {display.touchScreen ? <li className={className}>touchScreen: <div>{display.touchScreen}</div></li> : console.log()}
+            {display.touchScreen ? <li className={className}>touchScreen: {CHECK_TRUE_TEMPLATE}</li> : <li className={className}>touchScreen: {CHECK_FALSE_TEMPLATE}</li>}}
             {display.screenSize ? <li className={className}>screenSize: <div>{display.screenSize}</div></li> : console.log()}
             {display.screenResolution ? <li className={className}>screenResolution: <div>{display.screenResolution}</div></li> : console.log()}
         </div>
@@ -51,11 +57,11 @@ export const Specifications = (props) => {
     if (item.title === "Hardware") {
         data = <div>
             {hardware.usb ? <li className={className}>usb: <div>{hardware.usb}</div></li> : console.log()}
-            {hardware.physicalKeyboard ? <li className={className}>physicalKeyboard: <div>{hardware.physicalKeyboard}</div></li> : console.log()}
-            {hardware.fmRadio ? <li className={className}>fmRadio: <div>{hardware.fmRadio}</div></li> : console.log()}
+            {hardware.physicalKeyboard ? <li className={className}>physicalKeyboard: {CHECK_TRUE_TEMPLATE}</li> : <li className={className}>physicalKeyboard: {CHECK_FALSE_TEMPLATE}</li>}
+            {hardware.fmRadio ? <li className={className}>fmRadio: {CHECK_TRUE_TEMPLATE}</li> : <li className={className}>fmRadio: {CHECK_FALSE_TEMPLATE}</li>}
             {hardware.cpu ? <li className={className}>cpu: <div>{hardware.cpu}</div></li> : console.log()}
             {hardware.audioJack ? <li className={className}>audioJack: <div>{hardware.audioJack}</div></li> : console.log()}
-            {hardware.accelerometer ? <li className={className}>accelerometer: <div>{hardware.accelerometer}</div></li> : console.log()}
+            {hardware.accelerometer ? <li className={className}>accelerometer: {CHECK_TRUE_TEMPLATE}</li> : <li className={className}>accelerometer: {CHECK_FALSE_TEMPLATE}</li>}
         </div>
     }
 
@@ -74,8 +80,12 @@ export const Specifications = (props) => {
     }
 
     if (item.title === "Availability") {
+        let avalibilityFeatures = (availability) ? (typeof availability === 'object') ? availability.map((item, i) => {
+            return <div key={i}>{item}</div>
+        }) : availability : console.log()
+
         data = <div>
-            {availability ? <li className={className}>availability: <div>{availability}</div></li> : console.log()}
+            <li className={className}>availability: <div>{avalibilityFeatures}</div></li>
         </div>
     }
 
