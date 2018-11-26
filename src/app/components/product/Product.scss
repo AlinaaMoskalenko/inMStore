@@ -1,46 +1,126 @@
-@import '../../../styles/mixins.scss';
+@import "../../../styles/mixins.scss";
+@import "../../../styles/variables.scss";
 
-.product{
+.product {
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  &__small-title {
+    .small-title__arrow-back-to-previous-page {
+      font-size: 16px;
+    }
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    font-weight: 400;
+    font-size: 18px;
+    cursor: pointer;
+    &:hover {
+      color: $main-color;
+    }
+  }
+  &__conteiner {
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+  }
+  &__image-conteiner {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    // &__small-title{
-
-    // }
-    &__conteiner{
-        display: flex;
+    align-items: center;
+  }
+  &__images-toggle {
+    padding: 20px 0;
+  }
+  &__information {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-basis: 40%;
+  }
+  &__title {
+    font-size: 34px;
+    font-weight: 500;
+  }
+  &__price {
+    margin: 15px;
+    font-size: 26px;
+    &:before {
+      content: "$";
+      margin-right: 5px;
     }
-    // &__images{
-
-    // }
-    &__information{
-        display: flex;
-        flex-direction: column;
+  }
+  &__description {
+    text-align: justify;
+    text-indent: 15px;
+    &_first-child {
+      max-width: 500px;
+      width: 100%;
+      padding-top: 15px;
     }
-    // &__title{
-
-    // }
-    // &__price{
-
-    // }
-    // &__button{
-
-    // }
-    // &__details{
-
-    // }
+  }
+  &__button:first-child {
+    margin-right: 14px;
+  }
+  &__details {
+    width: 70%;
+    align-self: center;
+    min-height: calc(100vh - 64px);
+  }
+  &__tab {
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.6);
+    z-index: 0;
+    transition: 0.5s;
+    &_active {
+      color: rgb(98, 0, 238);
+      border-bottom: 2px solid rgb(98, 0, 238);
+    }
+  }
+  .mdc-button--outlined {
+    border-color: rgba(119, 16, 187, 0.855);
+    color: rgba(119, 16, 187, 0.855);
+    font-weight: 700;
+  }
 }
 
-// .conteiner{
-//     &__tabs{
+.conteiner {
+  &__tabs {
+    display: flex;
+  }
+}
 
-//     }
-//     &__content{
+.content {
+  display: none;
+  &_active {
+    display: block;
+  }
+}
 
-//     }
-// }
+.image {
+  display: none;
+  &_show {
+    display: block;
+  }
+}
 
+.image-toggle {
+  border: none;
+  border-radius: 50%;
+  width: 12px;
+  height: 12ypx;
+  background-color: rgb(209, 199, 199);
+  padding: 0;
+  margin: 0 5px;
+  cursor: pointer;
+  &_focused {
+    background-color: rgb(128, 128, 128);
+  }
+}
 
-// .image{
-
-// }
+.icon {
+  margin-right: 15px;
+}

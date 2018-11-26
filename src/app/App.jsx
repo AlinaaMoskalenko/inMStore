@@ -3,7 +3,7 @@ import './App.scss';
 import { HTTPService } from "./components/http-service/http-service";
 import { Header } from './components/header/Header.jsx';
 import { GlobalSidebar } from './components/global-sidebar/GlobalSidebar.jsx';
-// import { Catalog } from './components/catalog/Catalog.jsx';
+import { Catalog } from './components/catalog/Catalog.jsx';
 import { Product } from './components/product/Product.jsx';
 import { Footer } from './components/footer/Footer.jsx';
 
