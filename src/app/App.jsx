@@ -37,7 +37,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.httpService.get('http://localhost:4002/api/v1/phones/5bf537dca53801fa3459dfa2/', (product) => {
+    this.httpService.get('http://localhost:4002/api/v1/phones/5bf537dca53801fa3459dfb3', (product) => {
       this.setState((oldState) => Object.assign({}, oldState, { product }));
     }, (e) => {
       console.log(e); //если все плохо, то приходит какой-то callback

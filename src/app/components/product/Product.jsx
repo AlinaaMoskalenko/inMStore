@@ -6,8 +6,11 @@ export class Product extends React.Component {
     constructor() {
         super();
         this.getTabContent = this.getTabContent.bind(this);
+        this.addToWishlist = this.addToWishlist.bind(this);
         this.state = {
             isActiveTab: 'tab_0',
+            addToWishListTitle: 'Add to wish list',
+            addToWishListStyleClassName: 'product__button mdc-button mdc-button--outlined',
             specificationTitle: [
                 { title: "Android" },
                 { title: "Battery" },
@@ -24,13 +27,30 @@ export class Product extends React.Component {
 
     getTabContent(event) {
         const id_tab = event.target.id;
-        const coords = event.target.getBoundingClientRect();
-        // console.log(coords);
         this.setState((oldState) => {
             const newState = Object.assign({}, oldState);
             newState.isActiveTab = id_tab;
             return newState;
         });
+        // const coords = event.target.getBoundingClientRect();
+    }
+
+    addToWishlist(event) {
+        if (this.state.addToWishListTitle === "Add to wish list") {
+            this.setState((oldState) => {
+                const newState = Object.assign({}, oldState);
+                newState.addToWishListTitle = 'Added to wish list';
+                newState.addToWishListStyleClassName = 'mdc-button mdc-icon-button--on';
+                return newState;
+            });
+        } else {
+            this.setState((oldState) => {
+                const newState = Object.assign({}, oldState);
+                newState.addToWishListTitle = 'Add to wish list';
+                newState.addToWishListStyleClassName = 'product__button mdc-button mdc-button--outlined';
+                return newState;
+            });
+        }
     }
 
     render() {
@@ -54,15 +74,15 @@ export class Product extends React.Component {
         }
 
         let tabContent;
-        let classTab_0Names = "product__tab mdc-tab ";
+        let classTab_0Names = "mdc-tab__ripple tab ";
         if (this.state.isActiveTab === "tab_0") {
-            classTab_0Names += "product__tab_active";
-            tabContent = <div className="product__description content content_active">{description}</div>;
+            classTab_0Names += "tab_active";
+            tabContent = <div className="product__description product__description_second-child content content_active">{description}</div>;
         }
 
-        let classTab_1Names = "product__tab mdc-tab ";
+        let classTab_1Names = "mdc-tab__ripple tab ";
         if (this.state.isActiveTab === "tab_1") {
-            classTab_1Names += "product__tab_active";
+            classTab_1Names += "tab_active";
             tabContent = <div className="product__specifications content content_active ">
                 {this.state.specificationTitle.map((item, i) =>
                     <Specifications key={i}
@@ -71,9 +91,9 @@ export class Product extends React.Component {
             </div>;
         }
 
-        let classTab_2Names = "product__tab mdc-tab ";
+        let classTab_2Names = "mdc-tab__ripple tab ";
         if (this.state.isActiveTab === "tab_2") {
-            classTab_2Names += "product__tab_active";
+            classTab_2Names += "tab_active";
             tabContent = <div className="product__additional-features content content_active">{additionalFeatures}</div>;
         }
 
@@ -98,32 +118,33 @@ export class Product extends React.Component {
                             <i className="icon material-icons">add_shopping_cart</i>
                             Add to cart
                         </button>
-                        <button className="product__button mdc-button mdc-button--outlined"
+                        <button className={this.state.addToWishListStyleClassName}
                             onClick={this.addToWishlist}>
+                            <i className="icon icon_active material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
                             <i className="icon material-icons mdc-icon-button__icon">favorite_border</i>
-                            Add to wish list
+                            {this.state.addToWishListTitle}
                         </button>
                     </div>
                 </div>
             </div>
             <div className="product__details">
                 <div className="conteiner__tabs">
-                    <button className={classTab_0Names}
+                    {<button className="product__tab mdc-tab"
                         onClick={this.getTabContent}
                         onFocus={this.onFocus}>
                         Description
-                        <span id="tab_0" className="mdc-tab__ripple"></span>
-                    </button>
-                    <button className={classTab_1Names}
+                        <span id="tab_0" className={classTab_0Names}></span>
+                    </button>}
+                    <button className="product__tab mdc-tab"
                         onClick={this.getTabContent}
                         onFocus={this.onFocus}>
                         Specifications
-                        <span id="tab_1" className="mdc-tab__ripple"></span>
+                        <span id="tab_1" className={classTab_1Names}></span>
                     </button>
-                    <button className={classTab_2Names}
+                    <button className="product__tab mdc-tab"
                         onClick={this.getTabContent}>
                         Additional Features
-                        <span id="tab_2" className="mdc-tab__ripple"></span>
+                        <span id="tab_2" className={classTab_2Names}></span>
                     </button>
                 </div>
                 <div className="conteiner__content">

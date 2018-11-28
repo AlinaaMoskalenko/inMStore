@@ -40,6 +40,7 @@
     flex-direction: column;
     justify-content: space-around;
     flex-basis: 40%;
+    position: relative;
   }
   &__title {
     font-size: 34px;
@@ -56,6 +57,8 @@
   &__description {
     text-align: justify;
     text-indent: 15px;
+    line-height: 1.5;
+    padding-top: 10px;
     &_first-child {
       max-width: 500px;
       width: 100%;
@@ -63,7 +66,7 @@
     }
   }
   &__button:first-child {
-    margin-right: 14px;
+    margin-right: 20px;
   }
   &__details {
     width: 70%;
@@ -74,29 +77,43 @@
     flex: 0 0 auto;
     color: rgba(0, 0, 0, 0.6);
     z-index: 0;
-    transition: 0.5s;
-    &_active {
-      color: rgb(98, 0, 238);
-      border-bottom: 2px solid rgb(98, 0, 238);
-    }
+  }
+  &__specifications {
+    padding-left: 15px;
+    line-height: 1.5;
+  }
+  &__additional-features {
+    padding-top: 10px;
+    text-indent: 15px;
+    line-height: 1.5;
   }
   .mdc-button--outlined {
     border-color: rgba(119, 16, 187, 0.855);
     color: rgba(119, 16, 187, 0.855);
     font-weight: 700;
   }
+  .mdc-button {
+    color: rgba(119, 16, 187, 0.855);
+    font-weight: 700;
+  }
 }
 
 .conteiner {
+  &__content {
+    padding-top: 10px;
+  }
   &__tabs {
     display: flex;
+  }
+  &__button {
+    position: relative;
   }
 }
 
 .content {
-  display: none;
+  visibility: hidden;
   &_active {
-    display: block;
+    visibility: visible;
   }
 }
 
@@ -111,7 +128,7 @@
   border: none;
   border-radius: 50%;
   width: 12px;
-  height: 12ypx;
+  height: 12px;
   background-color: rgb(209, 199, 199);
   padding: 0;
   margin: 0 5px;
@@ -123,4 +140,16 @@
 
 .icon {
   margin-right: 15px;
+  z-index: -1;
+  &_active {
+    color: rgb(255, 0, 0);
+  }
+}
+
+.tab {
+  transition: 0.5s;
+  &_active {
+    color: rgb(98, 0, 238);
+    border-bottom: 2px solid rgb(98, 0, 238);
+  }
 }
