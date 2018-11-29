@@ -14,19 +14,45 @@ class App extends Component {
     this.httpService = new HTTPService();
     this.state = {
       product: [],
-      isSidebarOpened: false,
+      isSidebarOpened: true,
       sidebar_links: [
         {
           title: 'Home',
           href: 'https://www.apple.com/mac/',
         },
         {
-          title: 'Wish list',
+          title: 'Catalog',
           href: 'https://www.apple.com/iphone/',
-        },
-        {
-          title: 'Basket',
-          href: 'https://www.apple.com/watch/',
+          item: [
+            {
+              title: 'Dell',
+              href: '',
+            },
+            {
+              title: 'LG',
+              href: '',
+            },
+            {
+              title: 'Motorola',
+              href: '',
+            },
+            {
+              title: 'Nexus',
+              href: '',
+            },
+            {
+              title: 'Samsung',
+              href: '',
+            },
+            {
+              title: 'Sanyo',
+              href: '',
+            },
+            {
+              title: 'T-Mobile',
+              href: '',
+            },
+          ]
         },
         {
           title: 'About us',
@@ -37,7 +63,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.httpService.get('http://localhost:4002/api/v1/phones/5bf537dca53801fa3459dfb3', (product) => {
+    this.httpService.get('http://localhost:4002/api/v1/phones/5bf537dca53801fa3459dfa3', (product) => {
       this.setState((oldState) => Object.assign({}, oldState, { product }));
     }, (e) => {
       console.log(e); //если все плохо, то приходит какой-то callback
@@ -64,19 +90,20 @@ class App extends Component {
         <header className="app__header">
           <Header />
         </header>
-        <main className="app__main">
+        <div className="app__main">
           <div className="app__aside">
             <GlobalSidebar links={this.state.sidebar_links}
               onChangeMode={this.setSidebarMode} />
           </div>
+          <div></div>
           <section className={classSectionNames}>
-            {/* <Catalog /> */}
-            {this.state.product.length !== 0?<Product {...this.state.product}/>:console.log()}
+            <Catalog />
+            {/* {this.state.product.length !== 0 ? <Product {...this.state.product} /> : console.log()} */}
+            <footer className="app__footer">
+              <Footer />
+            </footer>
           </section>
-        </main>
-        <footer className="app__footer">
-          <Footer />
-        </footer>
+        </div>
       </div>
     );
   }

@@ -5,7 +5,7 @@
   padding: 25px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  min-height: calc(100vh - 2*#{$header-footer-height});
   &__small-title {
     .small-title__arrow-back-to-previous-page {
       font-size: 16px;
@@ -65,13 +65,14 @@
       padding-top: 15px;
     }
   }
-  &__button:first-child {
-    margin-right: 20px;
+  &__button {
+    &_add-to-cart {
+      margin-right: 20px;
+    }
   }
   &__details {
     width: 70%;
     align-self: center;
-    min-height: calc(100vh - 64px);
   }
   &__tab {
     flex: 0 0 auto;
@@ -132,6 +133,8 @@
   background-color: rgb(209, 199, 199);
   padding: 0;
   margin: 0 5px;
+  outline: none;
+  transition: 0.5s;
   cursor: pointer;
   &_focused {
     background-color: rgb(128, 128, 128);
@@ -141,7 +144,10 @@
 .icon {
   margin-right: 15px;
   z-index: -1;
-  &_active {
+  &_active-cart {
+    color: rgb(40, 168, 40);
+  }
+  &_active-favorite {
     color: rgb(255, 0, 0);
   }
 }

@@ -3,12 +3,11 @@ import './Footer.scss';
 
 export const Footer = () => {
     return <div className="footer">
-        <div className="footer__logo">
-            <div className="logo logo__icon"></div>
-            <div className="logo logo__title"></div>
-        </div>
+        <div className="footer__top-border"></div>
+        <div><div className="footer__logo"></div>
         <div className="footer__site-author">
             Create by Alina Moskalenko
-        </div>
+        </div></div>
+        
     </div>
 }

@@ -2,15 +2,25 @@ import * as React from 'react';
 import './Product.scss';
 import { Specifications } from './specifications/Specifications.jsx';
 
+const ADD_TO_CART_CLASS_NAMES = 'product__button product__button_add-to-cart mdc-button mdc-button--outlined';
+const ADD_TO_CART_CLASS_NAMES_ACTIVE = 'product__button_add-to-cart mdc-button mdc-icon-button--on';
+const ADD_TO_WISH_LIST_CLASS_NAMES = 'product__button mdc-button mdc-button--outlined';
+const ADD_TO_WISH_LIST_CLASS_NAMES_ACTIVE = 'mdc-button mdc-icon-button--on';
+
 export class Product extends React.Component {
     constructor() {
         super();
-        this.getTabContent = this.getTabContent.bind(this);
+        this.setActiveImage = this.setActiveImage.bind(this);
+        this.addToCart = this.addToCart.bind(this);
         this.addToWishlist = this.addToWishlist.bind(this);
+        this.getTabContent = this.getTabContent.bind(this);
         this.state = {
             isActiveTab: 'tab_0',
+            isActiveImg: 0,
+            addToCartTitle: 'Add to cart',
+            addToCartStyleClassName: ADD_TO_CART_CLASS_NAMES,
             addToWishListTitle: 'Add to wish list',
-            addToWishListStyleClassName: 'product__button mdc-button mdc-button--outlined',
+            addToWishListStyleClassName: ADD_TO_WISH_LIST_CLASS_NAMES,
             specificationTitle: [
                 { title: "Android" },
                 { title: "Battery" },
@@ -35,30 +45,58 @@ export class Product extends React.Component {
         // const coords = event.target.getBoundingClientRect();
     }
 
-    addToWishlist(event) {
+    addToCart() {
+        if (this.state.addToCartTitle === "Add to cart") {
+            this.setState((oldState) => {
+                const newState = Object.assign({}, oldState);
+                newState.addToCartTitle = 'Added to cart';
+                newState.addToCartStyleClassName = ADD_TO_CART_CLASS_NAMES_ACTIVE;
+                return newState;
+            });
+        } else {
+            this.setState((oldState) => {
+                const newState = Object.assign({}, oldState);
+                newState.addToCartTitle = 'Add to cart';
+                newState.addToCartStyleClassName = ADD_TO_CART_CLASS_NAMES;
+                return newState;
+            });
+        }
+    }
+
+    addToWishlist() {
         if (this.state.addToWishListTitle === "Add to wish list") {
             this.setState((oldState) => {
                 const newState = Object.assign({}, oldState);
                 newState.addToWishListTitle = 'Added to wish list';
-                newState.addToWishListStyleClassName = 'mdc-button mdc-icon-button--on';
+                newState.addToWishListStyleClassName = ADD_TO_WISH_LIST_CLASS_NAMES_ACTIVE;
                 return newState;
             });
         } else {
             this.setState((oldState) => {
                 const newState = Object.assign({}, oldState);
                 newState.addToWishListTitle = 'Add to wish list';
-                newState.addToWishListStyleClassName = 'product__button mdc-button mdc-button--outlined';
+                newState.addToWishListStyleClassName = ADD_TO_WISH_LIST_CLASS_NAMES;
                 return newState;
             });
         }
+    }
+
+    setActiveImage(event) {
+        const toggleID = event.target.id;
+        this.setState((oldState) => {
+            const newState = Object.assign({}, oldState);
+            newState.isActiveImg = toggleID;
+            return newState;
+        });
     }
 
     render() {
         const { _id, additionalFeatures, price, name, images, description } = this.props;
 
         let counter = 0;
+
         const imgUrl = images.map((image, i) => {
-            let classImageNames = (i === 0) ? "image image_show" : "image";
+            let classImageNames = (i === +this.state.isActiveImg) ? "image image_show" : "image";
             image = "http://localhost:4002/api/v1/" + image;
             counter++;
             return <img key={i}
@@ -69,8 +107,8 @@ export class Product extends React.Component {
 
         let imgToggle = [];
         for (let i = 0; i < counter; i++) {
-            let classToggleNames = (i === 0) ? "image-toggle image-toggle_focused" : "image-toggle";
-            imgToggle[i] = <button key={i} className={classToggleNames}></button>
+            let classToggleNames = (i === +this.state.isActiveImg) ? "image-toggle image-toggle_focused" : "image-toggle";
+            imgToggle[i] = <button id={i} key={i} className={classToggleNames}></button>
         }
 
         let tabContent;
@@ -83,7 +121,7 @@ export class Product extends React.Component {
         let classTab_1Names = "mdc-tab__ripple tab ";
         if (this.state.isActiveTab === "tab_1") {
             classTab_1Names += "tab_active";
-            tabContent = <div className="product__specifications content content_active ">
+            tabContent = <div className="product__specifications content content_active">
                 {this.state.specificationTitle.map((item, i) =>
                     <Specifications key={i}
                         {...this.props}
@@ -105,7 +143,10 @@ export class Product extends React.Component {
             <div className="product__conteiner">
                 <div className="product__image-conteiner">
                     <div className="product__images">{imgUrl}</div>
-                    <div className="product__images-toggle">{imgToggle}</div>
+                    <div className="product__images-toggle"
+                        onClick={this.setActiveImage}>
+                        {imgToggle}
+                    </div>
                 </div>
                 <div className="product__information">
                     <div className="conteiner__text">
@@ -114,13 +155,15 @@ export class Product extends React.Component {
                         <div className="product__description product__description_first-child">{description}</div>
                     </div>
                     <div className="conteiner__button">
-                        <button className="product__button mdc-button mdc-button--outlined">
-                            <i className="icon material-icons">add_shopping_cart</i>
-                            Add to cart
+                        <button className={this.state.addToCartStyleClassName}
+                        onClick = {this.addToCart}>
+                            <i className="icon icon_active-cart material-icons mdc-icon-button__icon mdc-icon-button__icon--on">shopping_cart</i>
+                            <i className="icon material-icons mdc-icon-button__icon">add_shopping_cart</i>
+                            {this.state.addToCartTitle}
                         </button>
                         <button className={this.state.addToWishListStyleClassName}
                             onClick={this.addToWishlist}>
-                            <i className="icon icon_active material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
+                            <i className="icon icon_active-favorite material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
                             <i className="icon material-icons mdc-icon-button__icon">favorite_border</i>
                             {this.state.addToWishListTitle}
                         </button>

@@ -3,18 +3,30 @@
 
 .footer {
   height: $header-footer-height;
-  padding: 0 25px;
-  background-color: $main-color;
+  margin: 0 25px;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
-  &__site-author {
+  &__top-border {
+    width: 100%;
+    height: 1px;
+    border: 1px solid rgb(126, 125, 125);
+    border-radius: 50%;
     position: absolute;
-    bottom: 5px;
-    right: 25px;
+    top: 0;
+  }
+  &__logo {
+    width: 150px;
+    height: 28px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("../../../assets/logo/logo_inMStore.png");
+  }
+  &__site-author {
+    margin-top: 5px;
     font-size: 12px;
-    color: rgb(255, 255, 255);
+    color: $font-color;
     font-style: italic;
     @include xs-mobile {
       display: none;
@@ -25,22 +37,3 @@
   }
 }
 
-.footer__logo {
-  display: flex;
-  align-items: center;
-  .logo {
-    background-size: contain;
-    background-repeat: no-repeat;
-    &__icon {
-      width: 35px;
-      height: 30px;
-      background-image: url("../../../assets/logo/white_logo.png");
-      margin-right: 10px;
-    }
-    &__title {
-      width: 98px;
-      height: 19px;
-      background-image: url("../../../assets/logo/white_logo_title.png");
-    }
-  }
-}
