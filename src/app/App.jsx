@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.scss';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { HTTPService } from "./components/http-service/http-service";
 import { Header } from './components/header/Header.jsx';
 import { GlobalSidebar } from './components/global-sidebar/GlobalSidebar.jsx';
@@ -10,61 +11,62 @@ import { Footer } from './components/footer/Footer.jsx';
 class App extends Component {
   constructor() {
     super();
-    this.setSidebarMode = this.setSidebarMode.bind(this);
     this.httpService = new HTTPService();
+    this.setSidebarMode = this.setSidebarMode.bind(this);
+    this.getProductID = this.getProductID.bind(this);
     this.state = {
-      product: [],
+      selectedProduct: [],
       isSidebarOpened: true,
       sidebar_links: [
         {
           title: 'Home',
-          href: 'https://www.apple.com/mac/',
+          href: '#/',
         },
         {
           title: 'Catalog',
-          href: 'https://www.apple.com/iphone/',
           item: [
             {
               title: 'Dell',
-              href: '',
+              href: '#/dell',
             },
             {
               title: 'LG',
-              href: '',
+              href: '#/lg',
             },
             {
               title: 'Motorola',
-              href: '',
+              href: '#/motorola',
             },
             {
               title: 'Nexus',
-              href: '',
+              href: '#/nexus',
             },
             {
               title: 'Samsung',
-              href: '',
+              href: '#/samsung',
             },
             {
               title: 'Sanyo',
-              href: '',
+              href: '#/sanyo',
             },
             {
               title: 'T-Mobile',
-              href: '',
+              href: '#/t-mobile',
             },
           ]
         },
         {
           title: 'About us',
-          href: 'https://www.apple.com/music/',
+          href: '#/about_us',
         },
       ],
     };
   }
 
-  componentDidMount() {
-    this.httpService.get('http://localhost:4002/api/v1/phones/5bf537dca53801fa3459dfa3', (product) => {
-      this.setState((oldState) => Object.assign({}, oldState, { product }));
+
+  getProductID(id) {
+    this.httpService.get('http://localhost:4002/api/v1/phones/' + `${id}`, (selectedProduct) => {
+      this.setState((oldState) => Object.assign({}, oldState, { selectedProduct }));
     }, (e) => {
       console.log(e); //если все плохо, то приходит какой-то callback
     });
@@ -79,13 +81,16 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.selectedProduct);
+    console.log(this.state.selectedProduct._id);
+
     let classSectionNames = 'app__section ';
 
     if (this.state.isSidebarOpened) {
-      classSectionNames += ' app__section_compressed';
+      classSectionNames += 'app__section_compressed';
     }
 
-    return (
+    return <Router>
       <div className="app" >
         <header className="app__header">
           <Header />
@@ -95,17 +100,18 @@ class App extends Component {
             <GlobalSidebar links={this.state.sidebar_links}
               onChangeMode={this.setSidebarMode} />
           </div>
-          <div></div>
           <section className={classSectionNames}>
-            <Catalog />
-            {/* {this.state.product.length !== 0 ? <Product {...this.state.product} /> : console.log()} */}
+            {/* переход на catalog, который по умолчанию есть root page, exact = true указывает на то, 
+            что если у нас есть чисто / в адресе, то это home page(catalog)*/}
+            <Route path="/" exact={true} component={() => <Catalog productID={this.getProductID} />} />
+            {this.state.selectedProduct.length !== 0 ? <Route path={"/" + `${this.state.selectedProduct._id}`} component={() => <Product {...this.state.selectedProduct} />} />:console.log("Empty producty")}
             <footer className="app__footer">
               <Footer />
             </footer>
           </section>
         </div>
-      </div>
-    );
+      </div >
+    </Router>
   }
 }
 

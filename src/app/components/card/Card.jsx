@@ -1,33 +1,29 @@
 import * as React from 'react';
 import './Card.scss';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+
 
 export class Card extends React.Component {
     constructor() {
         super();
-        this.getDetails = this.getDetails.bind(this);
         this.addToWishlist = this.addToWishlist.bind(this);
         this.state = {
-            isCardFocus: false,
             isAddToWishlistChecked: false,
             arrayActionButtons: [
                 {
                     title: 'view more',
-                    href: ''
+                    href: '#/'
                 },
                 {
                     title: 'buy',
-                    href: ''
+                    href: '#/'
                 }
             ],
         }
     }
 
-    getDetails() {
-        this.setState((oldState) => {
-            const newState = Object.assign({}, oldState);
-            newState.isCardFocus = !oldState.isCardFocus;
-            return newState;
-        });
+    setProduct(id, event){
+        (event.target.textContent === this.state.arrayActionButtons[0].title)? this.props.productID(id):console.log("press BUY");
     }
 
     addToWishlist() {
@@ -50,7 +46,6 @@ export class Card extends React.Component {
 
         if (this.state.isCardFocus) {
             classNamesForCardContent += "mdc-ripple-upgraded--background-focused mdc-ripple-upgraded--foreground-activation";
-            setTimeout(this.getDetails, 250);
         }
 
         if (this.state.isAddToWishlistChecked) {
@@ -58,13 +53,15 @@ export class Card extends React.Component {
         }
 
         const actionButtons = this.state.arrayActionButtons.map((button, i) => {
-            return <button key={i} className="action__btn mdc-button">
+            return <Link to = {"/"+_id} key={i} className="action__btn mdc-button"
+            onClick = {this.setProduct.bind(this, _id)}>
                 {button.title}
-            </button>
-        });
+                
+            </Link>
+        }); //to = {"/"+_id}
 
         return <div id={_id} className="card">
-            <div className={classNamesForCardContent} onClick={this.getDetails}>
+            <div className={classNamesForCardContent} onClick={this.setProduct.bind(this, _id)}>
                 <div className="card__image" style={cardImage}></div>
                 <div className="card__text">
                     <h2 className="card__title">{name}</h2>
