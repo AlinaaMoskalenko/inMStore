@@ -1,4 +1,9 @@
 @import "../styles/variables.scss";
+@import "../styles/mixins.scss";
+
+$width-sidebar-tablet: 30%;
+$width-sidebar-laptop: 20%;
+$width-sidebar-desktop: 20%;
 
 .app {
   &__header {
@@ -8,6 +13,22 @@
     z-index: 1;
     position: fixed;
     height: 100vh;
+    // width: $width-sidebar-desktop;
+    @include xs-mobile {
+      width: 100%;
+    }
+    @include mobile {
+      width: 100%;
+    }
+    @include tablet {
+      width: $width-sidebar-tablet;
+    }
+    @include desktop {
+      max-width: 220px;
+    }
+    @include laptop {
+      width: $width-sidebar-laptop;
+    }
   }
   &__main {
     padding-top: $header-footer-height;
@@ -17,7 +38,19 @@
     transition: 0.5s;
     width: 100%;
     &_compressed {
-      padding-left: 220px;
+      padding-left: $width-sidebar-desktop;
+      @include xs-mobile {
+        display: none;
+      }
+      @include mobile {
+        display: none;
+      }
+      @include tablet {
+        padding-left: $width-sidebar-tablet;
+      }
+      @include laptop {
+        padding-left: $width-sidebar-laptop;
+      }
     }
   }
 }

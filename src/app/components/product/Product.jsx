@@ -1,6 +1,8 @@
 import * as React from 'react';
 import './Product.scss';
 import { Specifications } from './specifications/Specifications.jsx';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
+
 
 const ADD_TO_CART_CLASS_NAMES = 'product__button product__button_add-to-cart mdc-button mdc-button--outlined';
 const ADD_TO_CART_CLASS_NAMES_ACTIVE = 'product__button_add-to-cart mdc-button mdc-icon-button--on';
@@ -136,10 +138,12 @@ export class Product extends React.Component {
         }
 
         return <div id={_id} className="product">
-            <h3 className="product__small-title">
-                <i className="small-title__arrow-back-to-previous-page material-icons">arrow_back_ios</i>
-                {name}
-            </h3>
+            <Link to={"/"} style = {{textDecoration: "none"}}>
+                <h3 className="product__small-title">
+                    <i className="small-title__arrow-back-to-previous-page material-icons">arrow_back_ios</i>
+                    All products
+                </h3>
+            </Link>
             <div className="product__conteiner">
                 <div className="product__image-conteiner">
                     <div className="product__images">{imgUrl}</div>
@@ -156,7 +160,7 @@ export class Product extends React.Component {
                     </div>
                     <div className="conteiner__button">
                         <button className={this.state.addToCartStyleClassName}
-                        onClick = {this.addToCart}>
+                            onClick={this.addToCart}>
                             <i className="icon icon_active-cart material-icons mdc-icon-button__icon mdc-icon-button__icon--on">shopping_cart</i>
                             <i className="icon material-icons mdc-icon-button__icon">add_shopping_cart</i>
                             {this.state.addToCartTitle}

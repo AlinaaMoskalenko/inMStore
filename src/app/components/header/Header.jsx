@@ -4,10 +4,12 @@ import './Header.scss';
 export class Header extends React.Component {
     constructor() {
         super();
+        this.toggleSearchRow = this.toggleSearchRow.bind(this);
         this.getSearchQuery = this.getSearchQuery.bind(this);
         this.inputValueChange = this.inputValueChange.bind(this);
         this.onReset = this.onReset.bind(this);
         this.state = {
+            searchRowOpened: false,
             inputValue: '',
             isInputSearchOpened: false,
             navItem: [
@@ -21,6 +23,14 @@ export class Header extends React.Component {
                 },
             ],
         }
+    }
+    toggleSearchRow() {
+        this.setState((oldState) => {
+            const newState = Object.assign({}, oldState);
+            newState.searchRowOpened = !oldState.searchRowOpened;
+            return newState;
+        });
+        // this.onReset();
     }
 
     inputValueChange(event) {
@@ -55,6 +65,14 @@ export class Header extends React.Component {
             </a>
         });
 
+        let classNamesSearchRow = "header__search-input ";
+        let classNamesSearchIcon = "header__button btn-search ";
+
+        if (this.state.searchRowOpened) {
+            classNamesSearchRow += "header__search-input_opened";
+            classNamesSearchIcon += "btn-search_opened";
+        }
+
         return <div className="header">
             <div className="header__logo">
                 <div className="logo logo__icon"></div>
@@ -65,16 +83,16 @@ export class Header extends React.Component {
                 <div className="header__action">
                     <div className="header__search">
                         <input type="text"
-                            className="header__search-input"
+                            className={classNamesSearchRow}
                             placeholder="Search products"
                             onChange={this.inputValueChange}
                             onKeyPress={this.getSearchQuery}
                             value={this.state.inputValue} />
                         <button
-                            className="header__button"
-                            title="Search a product">
-                            <i className="icon icon__search mdc-icon-button material-icons"
-                                onClick={this.getSearchQuery}>search</i>
+                            className={classNamesSearchIcon}
+                            title="Search a product"
+                            onClick={this.toggleSearchRow}>
+                            <i className="icon icon__search mdc-icon-button material-icons">search</i>
                         </button>
                     </div>
                     <button className="header__button"

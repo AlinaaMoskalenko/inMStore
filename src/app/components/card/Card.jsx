@@ -12,21 +12,36 @@ export class Card extends React.Component {
             arrayActionButtons: [
                 {
                     title: 'view more',
-                    href: '#/'
+                    href: '',
                 },
                 {
                     title: 'buy',
-                    href: '#/'
+                    href: '/basket',
                 }
             ],
         }
     }
 
-    setProduct(id, event){
-        (event.target.textContent === this.state.arrayActionButtons[0].title)? this.props.productID(id):console.log("press BUY");
+    componentDidMount(){
+        const {_id} =this.props;
+        this.setState((oldState)=>{
+                const newState = Object.assign({},oldState);
+                newState.arrayActionButtons[0].href = '/'+_id;
+                return newState;
+            });
+    }
+
+    setProduct(id, event) {
+        console.log(event.target.tagName);
+        ((event.target.textContent === this.state.arrayActionButtons[0].title) ||
+            (event.target.tagName === "DIV") ||
+            (event.target.tagName === "H2")) ?
+            this.props.productID(id) :
+            console.log("press BUY"); //this.props.productID(id) и сделать переход на корзину в Арр
     }
 
     addToWishlist() {
+        //this.props.productID(id) и просто добавить в список wishlist в Арр
         this.setState((oldState) => {
             const newState = Object.assign({}, oldState);
             newState.isAddToWishlistChecked = !oldState.isAddToWishlistChecked;
@@ -53,22 +68,24 @@ export class Card extends React.Component {
         }
 
         const actionButtons = this.state.arrayActionButtons.map((button, i) => {
-            return <Link to = {"/"+_id} key={i} className="action__btn mdc-button"
-            onClick = {this.setProduct.bind(this, _id)}>
+            return <Link to={button.href} key={i} className="action__btn mdc-button"
+                onClick={this.setProduct.bind(this, _id)}>
                 {button.title}
-                
             </Link>
-        }); //to = {"/"+_id}
+        });
 
         return <div id={_id} className="card">
-            <div className={classNamesForCardContent} onClick={this.setProduct.bind(this, _id)}>
-                <div className="card__image" style={cardImage}></div>
-                <div className="card__text">
-                    <h2 className="card__title">{name}</h2>
-                    <div className="card__price">{price}</div>
-                    <div className="card__description">{description}</div>
+            <Link to={"/" + _id} style={{ textDecoration: "none" }} className={classNamesForCardContent}>
+                <div className={classNamesForCardContent}
+                    onClick={this.setProduct.bind(this, _id)}>
+                    <div className="card__image" style={cardImage}></div>
+                    <div className="card__text">
+                        <h2 className="card__title">{name}</h2>
+                        <div className="card__price">{price}</div>
+                        <div className="card__description">{description}</div>
+                    </div>
                 </div>
-            </div>
+            </Link>
             <div className="card__button">
                 <div className="main-action">
                     {actionButtons}

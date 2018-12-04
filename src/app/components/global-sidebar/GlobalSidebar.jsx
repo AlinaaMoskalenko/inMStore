@@ -5,9 +5,10 @@ export class GlobalSidebar extends React.Component {
     constructor() {
         super();
         this.toggleMenu = this.toggleMenu.bind(this);
-        this.getItemList = this.getItemList.bind(this);
+        this.toggleItemList = this.toggleItemList.bind(this);
+        this.getSelectedPage = this.getSelectedPage.bind(this);
         this.state = {
-            isOpened: true,
+            isOpened: false,
             isOpenedLink: false,
         };
     }
@@ -21,12 +22,26 @@ export class GlobalSidebar extends React.Component {
         });
     }
 
-    getItemList() {
-        this.setState((oldState) => {
-            const newState = Object.assign({}, oldState);
-            newState.isOpenedLink = !oldState.isOpenedLink;
-            return newState;
-        });
+    getSelectedPage() {
+        if (window.screen.width < 768) {
+            this.toggleMenu();
+        }
+    }
+
+    toggleItemList(event) {
+        if (event.target.tagName !== "A" && window.screen.width >= 768) {
+            this.setState((oldState) => {
+                const newState = Object.assign({}, oldState);
+                newState.isOpenedLink = !oldState.isOpenedLink;
+                return newState;
+            });
+        } else if (window.screen.width < 768) {
+            this.setState((oldState) => {
+                const newState = Object.assign({}, oldState);
+                newState.isOpenedLink = !oldState.isOpenedLink;
+                return newState;
+            });
+        }
     }
 
     render() {
@@ -42,30 +57,37 @@ export class GlobalSidebar extends React.Component {
             if (link.item) {
                 const itemList = link.item.map((item, i) => {
                     return <li key={i} className={classNameItem}>
-                        <a href={item.href} className={classNameLink}>{item.title}</a>
+                        <a href={item.href}
+                            className={classNameLink}
+                            onClick={this.getSelectedPage}>
+                            {item.title}</a>
                     </li>
                 });
                 return <ul key={i} className={classNameLink}
-                    onClick={this.getItemList}>
+                    onClick={this.toggleItemList}>
                     {link.title}
                     {itemList}
                 </ul>
             } else {
-                return <a key={i} href={link.href} className={classNameLink}>
+                return <a key={i} href={link.href} className={classNameLink}
+                    onClick={this.getSelectedPage}>
                     {link.title}
                 </a>
             }
         });
 
         let classNames = 'sidebar ';
+        // let heightSideBarList = "100vh";
 
         if (this.state.isOpened) {
             classNames += 'sidebar_opened';
+            // if (window.screen.height < 768)
+                // heightSideBarList = window.screen.height;
         }
 
-        
-
-        return <aside className={classNames}>
+        return <aside className={classNames} 
+        // style = {{height: heightSideBarList}}
+        >
             <div className="sidebar__toggle mdc-icon-button" onClick={this.toggleMenu}>
                 <div className="toggle__row"></div>
                 <div className="toggle__row"></div>

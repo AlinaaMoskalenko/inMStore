@@ -7,6 +7,7 @@ import { GlobalSidebar } from './components/global-sidebar/GlobalSidebar.jsx';
 import { Catalog } from './components/catalog/Catalog.jsx';
 import { Product } from './components/product/Product.jsx';
 import { Footer } from './components/footer/Footer.jsx';
+let ID = "5bf537dca53801fa3459dfa4"
 
 class App extends Component {
   constructor() {
@@ -16,7 +17,7 @@ class App extends Component {
     this.getProductID = this.getProductID.bind(this);
     this.state = {
       selectedProduct: [],
-      isSidebarOpened: true,
+      isSidebarOpened: false,
       sidebar_links: [
         {
           title: 'Home',
@@ -63,7 +64,6 @@ class App extends Component {
     };
   }
 
-
   getProductID(id) {
     this.httpService.get('http://localhost:4002/api/v1/phones/' + `${id}`, (selectedProduct) => {
       this.setState((oldState) => Object.assign({}, oldState, { selectedProduct }));
@@ -82,8 +82,6 @@ class App extends Component {
 
   render() {
     console.log(this.state.selectedProduct);
-    console.log(this.state.selectedProduct._id);
-
     let classSectionNames = 'app__section ';
 
     if (this.state.isSidebarOpened) {
@@ -104,7 +102,12 @@ class App extends Component {
             {/* переход на catalog, который по умолчанию есть root page, exact = true указывает на то, 
             что если у нас есть чисто / в адресе, то это home page(catalog)*/}
             <Route path="/" exact={true} component={() => <Catalog productID={this.getProductID} />} />
-            {this.state.selectedProduct.length !== 0 ? <Route path={"/" + `${this.state.selectedProduct._id}`} component={() => <Product {...this.state.selectedProduct} />} />:console.log("Empty producty")}
+
+            {/* <Route path="/" exact={true} component={() => <Catalog  />} /> */}
+            
+            
+            {this.state.selectedProduct.length !== 0 ? <Route path={"/" + `${this.state.selectedProduct._id}`} component={() => <Product {...this.state.selectedProduct} />} />:console.log("Empty product")}
+            {/* {this.state.selectedProduct.length !== 0 ? <Route path="/" component={() => <Product {...this.state.selectedProduct} />} />:console.log("Empty product")} */}
             <footer className="app__footer">
               <Footer />
             </footer>

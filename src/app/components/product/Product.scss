@@ -5,7 +5,7 @@
   padding: 25px;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 2*#{$header-footer-height});
+  min-height: calc(100vh - 2 *#{$header-footer-height});
   &__small-title {
     .small-title__arrow-back-to-previous-page {
       font-size: 16px;
@@ -41,6 +41,10 @@
     justify-content: space-around;
     flex-basis: 40%;
     position: relative;
+    @include laptop {
+      margin-left: 30px;
+      flex-basis: 45%;
+    }
   }
   &__title {
     font-size: 34px;
@@ -66,6 +70,7 @@
     }
   }
   &__button {
+    margin: 5px 0;
     &_add-to-cart {
       margin-right: 20px;
     }
@@ -108,6 +113,10 @@
   }
   &__button {
     position: relative;
+    @include laptop {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 }
 
@@ -122,6 +131,9 @@
   display: none;
   &_show {
     display: block;
+    @include laptop {
+      width: 350px;
+    }
   }
 }
 

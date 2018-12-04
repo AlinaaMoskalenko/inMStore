@@ -5,6 +5,7 @@
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
+  min-height: 100vh;
   @include xs-mobile {
     padding: 10px 20px;
     justify-content: center;
@@ -17,10 +18,10 @@
   }
   @include tablet {
     padding: 12.5px 25px;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   @include laptop {
-    justify-content: space-between;
+    justify-content: space-around;
   }
   @include desktop {
     padding: 15px;
