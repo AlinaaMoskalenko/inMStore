@@ -1,29 +1,37 @@
 @import "../styles/variables.scss";
 @import "../styles/mixins.scss";
 
+$width-sidebar-mobile: 100%;
 $width-sidebar-tablet: 30%;
 $width-sidebar-laptop: 20%;
-$width-sidebar-desktop: 20%;
+$width-sidebar-desktop: 220px;
 
 .app {
   &__header {
     z-index: 1;
   }
   &__aside {
+    margin-top: $header-footer-height;
     z-index: 1;
     position: fixed;
-    height: 100%;
+    width: $width-sidebar-desktop;
+    height: calc(100% - 64px);
     @include xs-mobile {
-      width: 100%;
+      width: $width-sidebar-mobile;
+      height: 0;
+      &_opened {
+        height: calc(100% - 64px);
+      }
     }
     @include mobile {
-      width: 100%;
+      width: $width-sidebar-mobile;
+      height: 0;
+      &_opened {
+        height: calc(100% - 64px);
+      }
     }
     @include tablet {
       width: $width-sidebar-tablet;
-    }
-    @include desktop {
-      max-width: 220px;
     }
     @include laptop {
       width: $width-sidebar-laptop;
@@ -38,7 +46,7 @@ $width-sidebar-desktop: 20%;
     margin: $header-footer-height 0;
     transition: 0.5s;
     width: 100%;
-    min-height: calc(100vh - 2*#{$header-footer-height});
+    min-height: calc(100vh - 2 *#{$header-footer-height});
     &_small {
       padding-left: $width-sidebar-desktop;
       @include xs-mobile {

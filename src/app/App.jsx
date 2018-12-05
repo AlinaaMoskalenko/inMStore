@@ -83,12 +83,14 @@ class App extends Component {
   }
 
   render() {
+    let classSidebarNames = "app__aside ";
     let classSectionNames = 'app__section ';
     let classFooterNames = 'app__footer ';
 
     if (this.state.isSidebarOpened) {
       classSectionNames += 'app__section_small';
-      classFooterNames += 'app__footer_small'
+      classFooterNames += 'app__footer_small';
+      classSidebarNames += 'app__aside_opened';
     }
 
     return <Router>
@@ -97,7 +99,7 @@ class App extends Component {
           <Header />
         </header>
         <div className="app__main">
-          <div className="app__aside">
+          <div className={classSidebarNames}>
             <GlobalSidebar links={this.state.sidebar_links}
               onChangeMode={this.setSidebarMode} />
           </div>

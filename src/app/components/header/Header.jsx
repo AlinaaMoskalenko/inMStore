@@ -30,7 +30,6 @@ export class Header extends React.Component {
             newState.searchRowOpened = !oldState.searchRowOpened;
             return newState;
         });
-        // this.onReset();
     }
 
     inputValueChange(event) {

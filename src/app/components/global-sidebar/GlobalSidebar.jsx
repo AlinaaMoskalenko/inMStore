@@ -48,7 +48,6 @@ export class GlobalSidebar extends React.Component {
         const classNameLink = 'sidebar__link';
 
         let classNameItem = 'sidebar__link-item';
-
         if (this.state.isOpenedLink) {
             classNameItem = 'sidebar__link-item_active';
         }
@@ -77,17 +76,11 @@ export class GlobalSidebar extends React.Component {
         });
 
         let classNames = 'sidebar ';
-        // let heightSideBarList = "100vh";
-
         if (this.state.isOpened) {
             classNames += 'sidebar_opened';
-            // if (window.screen.height < 768)
-                // heightSideBarList = window.screen.height;
         }
 
-        return <aside className={classNames} 
-        // style = {{height: heightSideBarList}}
-        >
+        return <aside className={classNames}>
             <div className="sidebar__toggle mdc-icon-button" onClick={this.toggleMenu}>
                 <div className="toggle__row"></div>
                 <div className="toggle__row"></div>

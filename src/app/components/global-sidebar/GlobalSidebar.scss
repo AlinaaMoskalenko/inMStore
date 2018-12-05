@@ -2,7 +2,6 @@
 @import "../../../styles/mixins.scss";
 
 .sidebar {
-  margin-top: $header-footer-height;
   visibility: hidden;
   width: 0;
   height: 100%;
@@ -36,7 +35,7 @@
     visibility: visible;
     position: absolute;
     transform: translateY(-100%);
-    top: 56px;
+    top: -8px;
     left: 13px;
     display: flex;
     flex-direction: column;

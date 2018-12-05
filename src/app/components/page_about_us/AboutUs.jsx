@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HashRouter as Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import './AboutUs.scss';
 
 export const AboutUs = () => {
