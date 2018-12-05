@@ -4,10 +4,9 @@ import './Footer.scss';
 export const Footer = () => {
     return <div className="footer">
         <div className="footer__top-border"></div>
-        <div><div className="footer__logo"></div>
-        <div className="footer__site-author">
-            Create by Alina Moskalenko
-        </div></div>
-        
+        <div>
+            <div className="footer__logo"></div>
+            <div className="footer__site-author">Created by Alina Moskalenko</div>
+        </div>
     </div>
 }

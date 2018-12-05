@@ -16,7 +16,7 @@ export class Card extends React.Component {
                 },
                 {
                     title: 'buy',
-                    href: '/basket',
+                    href: '/cart',
                 }
             ],
         }

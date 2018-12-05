@@ -12,8 +12,7 @@ $width-sidebar-desktop: 20%;
   &__aside {
     z-index: 1;
     position: fixed;
-    height: 100vh;
-    // width: $width-sidebar-desktop;
+    height: 100%;
     @include xs-mobile {
       width: 100%;
     }
@@ -31,13 +30,38 @@ $width-sidebar-desktop: 20%;
     }
   }
   &__main {
-    padding-top: $header-footer-height;
     display: flex;
+    position: relative;
+    min-height: 100%;
   }
   &__section {
+    margin: $header-footer-height 0;
     transition: 0.5s;
     width: 100%;
-    &_compressed {
+    min-height: calc(100vh - 2*#{$header-footer-height});
+    &_small {
+      padding-left: $width-sidebar-desktop;
+      @include xs-mobile {
+        display: none;
+      }
+      @include mobile {
+        display: none;
+      }
+      @include tablet {
+        padding-left: $width-sidebar-tablet;
+      }
+      @include laptop {
+        padding-left: $width-sidebar-laptop;
+      }
+    }
+  }
+  &__footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    transition: 0.5s;
+    &_small {
       padding-left: $width-sidebar-desktop;
       @include xs-mobile {
         display: none;

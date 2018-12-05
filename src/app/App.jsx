@@ -6,7 +6,9 @@ import { Header } from './components/header/Header.jsx';
 import { GlobalSidebar } from './components/global-sidebar/GlobalSidebar.jsx';
 import { Catalog } from './components/catalog/Catalog.jsx';
 import { Product } from './components/product/Product.jsx';
+import { AboutUs } from './components/page_about_us/AboutUs.jsx';
 import { Footer } from './components/footer/Footer.jsx';
+
 let ID = "5bf537dca53801fa3459dfa4"
 
 class App extends Component {
@@ -21,7 +23,7 @@ class App extends Component {
       sidebar_links: [
         {
           title: 'Home',
-          href: '#/',
+          href: '/',
         },
         {
           title: 'Catalog',
@@ -81,11 +83,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.selectedProduct);
     let classSectionNames = 'app__section ';
+    let classFooterNames = 'app__footer ';
 
     if (this.state.isSidebarOpened) {
-      classSectionNames += 'app__section_compressed';
+      classSectionNames += 'app__section_small';
+      classFooterNames += 'app__footer_small'
     }
 
     return <Router>
@@ -104,14 +107,14 @@ class App extends Component {
             <Route path="/" exact={true} component={() => <Catalog productID={this.getProductID} />} />
 
             {/* <Route path="/" exact={true} component={() => <Catalog  />} /> */}
-            
-            
-            {this.state.selectedProduct.length !== 0 ? <Route path={"/" + `${this.state.selectedProduct._id}`} component={() => <Product {...this.state.selectedProduct} />} />:console.log("Empty product")}
+
+            {this.state.selectedProduct.length !== 0 ? <Route path={"/" + `${this.state.selectedProduct._id}`} component={() => <Product {...this.state.selectedProduct} />} /> : console.log("Empty product")}
             {/* {this.state.selectedProduct.length !== 0 ? <Route path="/" component={() => <Product {...this.state.selectedProduct} />} />:console.log("Empty product")} */}
-            <footer className="app__footer">
-              <Footer />
-            </footer>
+            <Route path='/about_us' component={AboutUs} />
           </section>
+          <footer className={classFooterNames}>
+            <Footer />
+          </footer>
         </div>
       </div >
     </Router>
