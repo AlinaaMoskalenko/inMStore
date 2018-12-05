@@ -15,7 +15,8 @@ export class Product extends React.Component {
         this.setActiveImage = this.setActiveImage.bind(this);
         this.addToCart = this.addToCart.bind(this);
         this.addToWishlist = this.addToWishlist.bind(this);
-        this.getTabContent = this.getTabContent.bind(this);
+        this.getActiveTabID = this.getActiveTabID.bind(this);
+        this.toggleAccordion = this.toggleAccordion.bind(this);
         this.state = {
             isActiveTab: 'tab_0',
             isActiveImg: 0,
@@ -34,10 +35,22 @@ export class Product extends React.Component {
                 { title: "Storage" },
                 { title: "Availability" },
             ],
+            windowWidth: window.screen.width,
+            isAccordionOpened: false,
         };
     }
 
-    getTabContent(event) {
+    componentDidMount() {
+        window.addEventListener('resize', () => {
+            this.setState((oldState) => {
+                const newState = Object.assign({}, oldState);
+                newState.windowWidth = window.screen.width;
+                return newState;
+            });
+        });
+    }
+
+    getActiveTabID(event) {
         const id_tab = event.target.id;
         this.setState((oldState) => {
             const newState = Object.assign({}, oldState);
@@ -92,6 +105,14 @@ export class Product extends React.Component {
         });
     }
 
+    toggleAccordion() {
+        this.setState((oldState) => {
+            const newState = Object.assign({}, oldState);
+            newState.isAccordionOpened = !oldState.isAccordionOpened;
+            return newState;
+        });
+    }
+
     render() {
         const { _id, additionalFeatures, price, name, images, description } = this.props;
 
@@ -115,14 +136,18 @@ export class Product extends React.Component {
 
         let tabContent;
         let classTab_0Names = "mdc-tab__ripple tab ";
+        let classAccordion_0Names = 'conteiner__content conteiner__content_closed';
         if (this.state.isActiveTab === "tab_0") {
             classTab_0Names += "tab_active";
+            classAccordion_0Names = 'conteiner__content conteiner__content_opened';
             tabContent = <div className="product__description product__description_second-child content content_active">{description}</div>;
         }
 
         let classTab_1Names = "mdc-tab__ripple tab ";
+        let classAccordion_1Names = 'conteiner__content conteiner__content_closed';
         if (this.state.isActiveTab === "tab_1") {
             classTab_1Names += "tab_active";
+            classAccordion_1Names = 'conteiner__content conteiner__content_opened';
             tabContent = <div className="product__specifications content content_active">
                 {this.state.specificationTitle.map((item, i) =>
                     <Specifications key={i}
@@ -132,13 +157,76 @@ export class Product extends React.Component {
         }
 
         let classTab_2Names = "mdc-tab__ripple tab ";
+        let classAccordion_2Names = 'conteiner__content conteiner__content_opened';
         if (this.state.isActiveTab === "tab_2") {
             classTab_2Names += "tab_active";
+            classAccordion_2Names = 'conteiner__content conteiner__content_opened';
             tabContent = <div className="product__additional-features content content_active">{additionalFeatures}</div>;
         }
 
+
+        
+        // if (this.state.isAccordionOpened)
+        //     classAccordionNames = 'conteiner__content conteiner__content_opened';
+
+        let productDetails;
+
+        if (this.state.windowWidth > 768) {
+            productDetails = <div className="product__details">
+                <div className="conteiner__tabs">
+                    <button className="product__tab mdc-tab"
+                        onClick={this.getActiveTabID}>
+                        Description
+                    <span id="tab_0" className={classTab_0Names}></span>
+                    </button>
+                    <button className="product__tab mdc-tab"
+                        onClick={this.getActiveTabID}>
+                        Specifications
+                    <span id="tab_1" className={classTab_1Names}></span>
+                    </button>
+                    <button className="product__tab mdc-tab"
+                        onClick={this.getActiveTabID}>
+                        Additional Features
+                    <span id="tab_2" className={classTab_2Names}></span>
+                    </button>
+                </div>
+                <div className="conteiner__content">
+                    {tabContent}
+                </div>
+            </div>
+        } else {
+            productDetails = <div className="product__details">
+                <div className="conteiner__tabs">
+                    <button className="product__tab mdc-tab"
+                        onClick={this.getActiveTabID}>
+                        Description
+                    <span id="tab_0" className={classTab_0Names}></span>
+                    </button>
+                </div>
+                <div className={classAccordion_0Names}>
+                    {tabContent}
+                </div>
+                <button className="product__tab mdc-tab"
+                    onClick={this.getActiveTabID}>
+                    Specifications
+                    <span id="tab_1" className={classTab_1Names}></span>
+                </button>
+                <div className={classAccordion_1Names}>
+                    {tabContent}
+                </div>
+                <button className="product__tab mdc-tab"
+                    onClick={this.getActiveTabID}>
+                    Additional Features
+                    <span id="tab_2" className={classTab_2Names}></span>
+                </button>
+                <div className={classAccordion_2Names}>
+                    {tabContent}
+                </div>
+            </div>
+        }
+
         return <div id={_id} className="product">
-            <Link to={"/"} style = {{textDecoration: "none"}}>
+            <Link to={"/"} className="product__back-link">
                 <h3 className="product__small-title">
                     <i className="small-title__arrow-back-to-previous-page material-icons">arrow_back_ios</i>
                     All products
@@ -174,30 +262,31 @@ export class Product extends React.Component {
                     </div>
                 </div>
             </div>
-            <div className="product__details">
+            {/* <div className="product__details" >
                 <div className="conteiner__tabs">
                     {<button className="product__tab mdc-tab"
-                        onClick={this.getTabContent}
+                        onClick={this.getActiveTabID}
                         onFocus={this.onFocus}>
                         Description
-                        <span id="tab_0" className={classTab_0Names}></span>
+                <span id="tab_0" className={classTab_0Names}></span>
                     </button>}
                     <button className="product__tab mdc-tab"
-                        onClick={this.getTabContent}
+                        onClick={this.getActiveTabID}
                         onFocus={this.onFocus}>
                         Specifications
-                        <span id="tab_1" className={classTab_1Names}></span>
+                <span id="tab_1" className={classTab_1Names}></span>
                     </button>
                     <button className="product__tab mdc-tab"
-                        onClick={this.getTabContent}>
+                        onClick={this.getActiveTabID}>
                         Additional Features
-                        <span id="tab_2" className={classTab_2Names}></span>
+                <span id="tab_2" className={classTab_2Names}></span>
                     </button>
                 </div>
                 <div className="conteiner__content">
                     {tabContent}
                 </div>
-            </div>
-        </div>
+            </div> */}
+            {productDetails}
+        </div >
     }
 }

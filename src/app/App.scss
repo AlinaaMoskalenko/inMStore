@@ -14,8 +14,11 @@ $width-sidebar-desktop: 220px;
     margin-top: $header-footer-height;
     z-index: 1;
     position: fixed;
-    width: $width-sidebar-desktop;
+    width: 0;
     height: calc(100% - 64px);
+    &_opened {
+      width: $width-sidebar-desktop;
+    }
     @include xs-mobile {
       width: $width-sidebar-mobile;
       height: 0;
@@ -31,10 +34,16 @@ $width-sidebar-desktop: 220px;
       }
     }
     @include tablet {
-      width: $width-sidebar-tablet;
+      width: 0;
+      &_opened {
+        width: $width-sidebar-tablet;
+      }
     }
     @include laptop {
-      width: $width-sidebar-laptop;
+      width: 0;
+      &_opened {
+        width: $width-sidebar-laptop;
+      }
     }
   }
   &__main {

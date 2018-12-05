@@ -6,6 +6,9 @@
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 2 *#{$header-footer-height});
+  &__back-link {
+    text-decoration: none;
+  }
   &__small-title {
     .small-title__arrow-back-to-previous-page {
       font-size: 16px;
@@ -24,12 +27,18 @@
     display: flex;
     justify-content: center;
     padding: 25px;
+    @include tablet {
+      flex-direction: column;
+    }
   }
   &__image-conteiner {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include tablet {
+      margin-bottom: 25px;
+    }
   }
   &__images-toggle {
     padding: 20px 0;
@@ -41,6 +50,11 @@
     justify-content: space-around;
     flex-basis: 40%;
     position: relative;
+    @include tablet{
+      margin-left: 0;
+      align-items: center;
+      min-height: 350px;
+    }
     @include laptop {
       margin-left: 30px;
       flex-basis: 45%;
@@ -107,6 +121,12 @@
 .conteiner {
   &__content {
     padding-top: 10px;
+    &_closed{
+      visibility: hidden;
+    }
+    &_opened{
+      visibility: visible;
+    }
   }
   &__tabs {
     display: flex;
