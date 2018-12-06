@@ -40,7 +40,6 @@ export class Specifications extends React.Component {
         }
 
         if (item.title === "Camera") {
-            // console.log(camera.features);
             let cameraFeatures = (camera.features) ? (typeof camera.features === 'object') ? camera.features.map((item, i) => {
                 return <div key={i} className={CLASS_NAME_TEXT}>{item}</div>
             }) : camera.features : console.log()

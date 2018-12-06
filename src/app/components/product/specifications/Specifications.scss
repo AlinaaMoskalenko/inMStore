@@ -1,3 +1,5 @@
+@import '../../../../styles/mixins.scss';
+
 .specification {
   &__title {
     padding: 10px 15px;
@@ -35,9 +37,15 @@
     display: flex;
     margin: 5px 20px;
     align-items: center;
+    @include xs-mobile{
+      margin: 5px 10px;
+    }
   }
   &__item-title {
     min-width: 150px;
+    @include xs-mobile{
+      min-width: 100px;
+    }
   }
   &__text {
     display: flex;

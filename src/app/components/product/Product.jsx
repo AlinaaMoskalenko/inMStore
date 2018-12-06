@@ -36,7 +36,6 @@ export class Product extends React.Component {
                 { title: "Availability" },
             ],
             windowWidth: window.screen.width,
-            isAccordionOpened: false,
         };
     }
 
@@ -105,12 +104,8 @@ export class Product extends React.Component {
         });
     }
 
-    toggleAccordion() {
-        this.setState((oldState) => {
-            const newState = Object.assign({}, oldState);
-            newState.isAccordionOpened = !oldState.isAccordionOpened;
-            return newState;
-        });
+    toggleAccordion(event) {
+        event.target.classList.toggle('conteiner__accordions_opened');
     }
 
     render() {
@@ -136,18 +131,14 @@ export class Product extends React.Component {
 
         let tabContent;
         let classTab_0Names = "mdc-tab__ripple tab ";
-        let classAccordion_0Names = 'conteiner__content conteiner__content_closed';
         if (this.state.isActiveTab === "tab_0") {
             classTab_0Names += "tab_active";
-            classAccordion_0Names = 'conteiner__content conteiner__content_opened';
             tabContent = <div className="product__description product__description_second-child content content_active">{description}</div>;
         }
 
         let classTab_1Names = "mdc-tab__ripple tab ";
-        let classAccordion_1Names = 'conteiner__content conteiner__content_closed';
         if (this.state.isActiveTab === "tab_1") {
             classTab_1Names += "tab_active";
-            classAccordion_1Names = 'conteiner__content conteiner__content_opened';
             tabContent = <div className="product__specifications content content_active">
                 {this.state.specificationTitle.map((item, i) =>
                     <Specifications key={i}
@@ -157,21 +148,14 @@ export class Product extends React.Component {
         }
 
         let classTab_2Names = "mdc-tab__ripple tab ";
-        let classAccordion_2Names = 'conteiner__content conteiner__content_opened';
         if (this.state.isActiveTab === "tab_2") {
             classTab_2Names += "tab_active";
-            classAccordion_2Names = 'conteiner__content conteiner__content_opened';
             tabContent = <div className="product__additional-features content content_active">{additionalFeatures}</div>;
         }
 
-
-        
-        // if (this.state.isAccordionOpened)
-        //     classAccordionNames = 'conteiner__content conteiner__content_opened';
-
         let productDetails;
 
-        if (this.state.windowWidth > 768) {
+        if (this.state.windowWidth > 992) { //992 min-width laptop
             productDetails = <div className="product__details">
                 <div className="conteiner__tabs">
                     <button className="product__tab mdc-tab"
@@ -196,31 +180,38 @@ export class Product extends React.Component {
             </div>
         } else {
             productDetails = <div className="product__details">
-                <div className="conteiner__tabs">
-                    <button className="product__tab mdc-tab"
-                        onClick={this.getActiveTabID}>
+                <div className="conteiner__accordions" onClick={this.toggleAccordion}>
+                    <button className="product__tab mdc-tab">
                         Description
-                    <span id="tab_0" className={classTab_0Names}></span>
                     </button>
+                    <div className="content__accordion content__accordion_opened">
+                        <div className="product__description product__description_second-child">
+                            {description}
+                        </div>
+                    </div>
                 </div>
-                <div className={classAccordion_0Names}>
-                    {tabContent}
+                <div className="conteiner__accordions" onClick={this.toggleAccordion}>
+                    <button className="product__tab mdc-tab">
+                        Specifications
+                    </button>
+                    <div className="content__accordion content__accordion_opened">
+                        <div className="product__specifications">
+                            {this.state.specificationTitle.map((item, i) =>
+                                <Specifications key={i}
+                                    {...this.props}
+                                    item={item} />)}
+                        </div>
+                    </div>
                 </div>
-                <button className="product__tab mdc-tab"
-                    onClick={this.getActiveTabID}>
-                    Specifications
-                    <span id="tab_1" className={classTab_1Names}></span>
-                </button>
-                <div className={classAccordion_1Names}>
-                    {tabContent}
-                </div>
-                <button className="product__tab mdc-tab"
-                    onClick={this.getActiveTabID}>
-                    Additional Features
-                    <span id="tab_2" className={classTab_2Names}></span>
-                </button>
-                <div className={classAccordion_2Names}>
-                    {tabContent}
+                <div className="conteiner__accordions" onClick={this.toggleAccordion}>
+                    <button className="product__tab mdc-tab">
+                        Additional Features
+                    </button>
+                    <div className="content__accordion content__accordion_opened">
+                        <div className="product__additional-features">
+                            {additionalFeatures}
+                        </div>
+                    </div>
                 </div>
             </div>
         }
@@ -262,31 +253,7 @@ export class Product extends React.Component {
                     </div>
                 </div>
             </div>
-            {/* <div className="product__details" >
-                <div className="conteiner__tabs">
-                    {<button className="product__tab mdc-tab"
-                        onClick={this.getActiveTabID}
-                        onFocus={this.onFocus}>
-                        Description
-                <span id="tab_0" className={classTab_0Names}></span>
-                    </button>}
-                    <button className="product__tab mdc-tab"
-                        onClick={this.getActiveTabID}
-                        onFocus={this.onFocus}>
-                        Specifications
-                <span id="tab_1" className={classTab_1Names}></span>
-                    </button>
-                    <button className="product__tab mdc-tab"
-                        onClick={this.getActiveTabID}>
-                        Additional Features
-                <span id="tab_2" className={classTab_2Names}></span>
-                    </button>
-                </div>
-                <div className="conteiner__content">
-                    {tabContent}
-                </div>
-            </div> */}
             {productDetails}
-        </div >
+        </div>
     }
 }

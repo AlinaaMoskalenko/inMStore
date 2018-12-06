@@ -6,12 +6,24 @@
   display: flex;
   flex-direction: column;
   min-height: calc(100vh - 2 *#{$header-footer-height});
+  @include xs-mobile {
+    padding: 25px 15px;
+    @include landscape {
+      padding: 25px 15px;
+    }
+  }
   &__back-link {
     text-decoration: none;
   }
   &__small-title {
     .small-title__arrow-back-to-previous-page {
       font-size: 16px;
+      @include xs-mobile {
+        font-size: 14px;
+        @include landscape {
+          font-size: 14px;
+        }
+      }
     }
     display: flex;
     align-items: center;
@@ -22,11 +34,26 @@
     &:hover {
       color: $main-color;
     }
+    @include xs-mobile {
+      font-size: 16px;
+      @include landscape {
+        font-size: 16px;
+      }
+    }
   }
   &__conteiner {
     display: flex;
     justify-content: center;
     padding: 25px;
+    @include xs-mobile {
+      flex-direction: column;
+      @include landscape {
+        flex-direction: column;
+      }
+    }
+    @include mobile {
+      flex-direction: column;
+    }
     @include tablet {
       flex-direction: column;
     }
@@ -36,6 +63,9 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @include mobile {
+      margin-bottom: 25px;
+    }
     @include tablet {
       margin-bottom: 25px;
     }
@@ -50,7 +80,20 @@
     justify-content: space-around;
     flex-basis: 40%;
     position: relative;
-    @include tablet{
+    @include xs-mobile {
+      margin-left: 0;
+      min-height: 400px;
+      @include landscape {
+        margin-left: 0;
+        min-height: 350px;
+      }
+    }
+    @include mobile {
+      margin-left: 0;
+      align-items: center;
+      min-height: 350px;
+    }
+    @include tablet {
       margin-left: 0;
       align-items: center;
       min-height: 350px;
@@ -63,6 +106,15 @@
   &__title {
     font-size: 34px;
     font-weight: 500;
+    @include xs-mobile {
+      font-size: 22px;
+      @include landscape {
+        font-size: 24px;
+      }
+    }
+    @include mobile {
+      font-size: 30px;
+    }
   }
   &__price {
     margin: 15px;
@@ -70,6 +122,15 @@
     &:before {
       content: "$";
       margin-right: 5px;
+    }
+    @include xs-mobile {
+      font-size: 20px;
+      @include landscape {
+        font-size: 22px;
+      }
+    }
+    @include mobile {
+      font-size: 22px;
     }
   }
   &__description {
@@ -81,17 +142,44 @@
       max-width: 500px;
       width: 100%;
       padding-top: 15px;
+      @include xs-mobile {
+        font-size: 12px;
+        @include landscape {
+          font-size: inherit;
+        }
+      }
+    }
+    &_second-child {
+      padding: 0;
+      @include xs-mobile {
+        font-size: 11px;
+        @include landscape {
+          font-size: inherit;
+        }
+      }
     }
   }
   &__button {
     margin: 5px 0;
     &_add-to-cart {
       margin-right: 20px;
+      @include xs-mobile {
+        margin-right: 0;
+        @include landscape {
+          margin-right: 25px;
+        }
+      }
     }
   }
   &__details {
     width: 70%;
     align-self: center;
+    @include xs-mobile {
+      width: 100%;
+      @include landscape {
+        width: 90%;
+      }
+    }
   }
   &__tab {
     flex: 0 0 auto;
@@ -101,11 +189,25 @@
   &__specifications {
     padding-left: 15px;
     line-height: 1.5;
+    @include xs-mobile {
+      padding-left: 0;
+      font-size: 11px;
+      @include landscape {
+        padding-left: 0;
+        font-size: inherit;
+      }
+    }
   }
   &__additional-features {
     padding-top: 10px;
     text-indent: 15px;
     line-height: 1.5;
+    @include xs-mobile {
+      font-size: 11px;
+      @include landscape {
+        font-size: inherit;
+      }
+    }
   }
   .mdc-button--outlined {
     border-color: rgba(119, 16, 187, 0.855);
@@ -121,18 +223,42 @@
 .conteiner {
   &__content {
     padding-top: 10px;
-    &_closed{
-      visibility: hidden;
-    }
-    &_opened{
-      visibility: visible;
-    }
   }
   &__tabs {
     display: flex;
   }
+  &__accordions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    & > button {
+      z-index: -1;
+    }
+    &_opened {
+      .product__tab {
+        color: $font-color;
+        border-bottom: 2px solid rgb(98, 0, 238);
+      }
+      .content__accordion_opened {
+        padding-top: 15px;
+        display: block;
+        @include xs-mobile {
+          max-width: 95%;
+          @include landscape {
+            max-width: 95%;
+          }
+        }
+      }
+    }
+  }
   &__button {
     position: relative;
+    @include xs-mobile {
+      text-align: center;
+      @include landscape {
+        text-align: center;
+      }
+    }
     @include laptop {
       display: flex;
       flex-wrap: wrap;
@@ -145,12 +271,21 @@
   &_active {
     visibility: visible;
   }
+  &__accordion {
+    display: none;
+  }
 }
 
 .image {
   display: none;
   &_show {
     display: block;
+    @include xs-mobile {
+      width: 300px;
+      @include landscape {
+        width: 300px;
+      }
+    }
     @include laptop {
       width: 350px;
     }
