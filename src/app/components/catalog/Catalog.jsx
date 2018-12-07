@@ -26,7 +26,7 @@ export class Catalog extends React.Component {
 
     render() {
         return <div className="catalog-content">
-            {this.state.products.map((product, i) => <Card {...product} key={i} productID = {this.props.productID}/>)}
+            {this.state.products.map((product, i) => <Card {...product} key={i} productID = {this.props.productID} isAccess = {this.props.isAccess}/>)}
         </div>
     }
 }

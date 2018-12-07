@@ -8,6 +8,7 @@ export class Card extends React.Component {
         super();
         this.addToWishlist = this.addToWishlist.bind(this);
         this.state = {
+            isAccess: false,
             isAddToWishlistChecked: false,
             arrayActionButtons: [
                 {
@@ -16,23 +17,38 @@ export class Card extends React.Component {
                 },
                 {
                     title: 'buy',
-                    href: '/cart',
+                    href: '',
                 }
             ],
         }
     }
 
-    componentDidMount(){
-        const {_id} =this.props;
-        this.setState((oldState)=>{
-                const newState = Object.assign({},oldState);
-                newState.arrayActionButtons[0].href = '/'+_id;
+    componentDidMount() {
+        const { _id, isAccess } = this.props;
+        console.log(this.state.arrayActionButtons[1].href);
+        this.setState((oldState) => {
+            const newState = Object.assign({}, oldState);
+            newState.arrayActionButtons[0].href = '/' + _id;
+            newState.isAccess = isAccess;
+            return newState;
+        });
+
+        if (isAccess) {
+            this.setState((oldState) => {
+                const newState = Object.assign({}, oldState);
+                newState.arrayActionButtons[1].href = '/cart';
                 return newState;
             });
+        } else {
+            this.setState((oldState) => {
+                const newState = Object.assign({}, oldState);
+                newState.arrayActionButtons[1].href = '/sign_in';
+                return newState;
+            });
+        }
     }
 
     setProduct(id, event) {
-        console.log(event.target.tagName);
         ((event.target.textContent === this.state.arrayActionButtons[0].title) ||
             (event.target.tagName === "DIV") ||
             (event.target.tagName === "H2")) ?
@@ -57,14 +73,18 @@ export class Card extends React.Component {
         }
 
         let classNamesForCardContent = "card__content mdc-card__primary-action mdc-ripple-upgraded "
-        let classNamesForButtonAddToWishlist = "action__add-to-wishlist mdc-icon-button ";
 
         if (this.state.isCardFocus) {
             classNamesForCardContent += "mdc-ripple-upgraded--background-focused mdc-ripple-upgraded--foreground-activation";
         }
 
-        if (this.state.isAddToWishlistChecked) {
-            classNamesForButtonAddToWishlist += "mdc-icon-button--on";
+        let classNamesForButtonAddToWishlist = 'action__add-to-wishlist_hidden';
+
+        if (this.state.isAccess) {
+            classNamesForButtonAddToWishlist = "action__add-to-wishlist mdc-icon-button ";
+            if (this.state.isAddToWishlistChecked) {
+                classNamesForButtonAddToWishlist += "mdc-icon-button--on";
+            }
         }
 
         const actionButtons = this.state.arrayActionButtons.map((button, i) => {
@@ -100,6 +120,6 @@ export class Card extends React.Component {
                     <i className="material-icons mdc-icon-button__icon">favorite_border</i>
                 </button>
             </div>
-        </div>
+        </div >
     }
 }

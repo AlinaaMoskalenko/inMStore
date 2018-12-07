@@ -109,6 +109,7 @@ export class Product extends React.Component {
     }
 
     render() {
+        // console.log(window.location.hash);
         const { _id, additionalFeatures, price, name, images, description } = this.props;
 
         let counter = 0;

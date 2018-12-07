@@ -6,10 +6,10 @@ import { Header } from './components/header/Header.jsx';
 import { GlobalSidebar } from './components/global-sidebar/GlobalSidebar.jsx';
 import { Catalog } from './components/catalog/Catalog.jsx';
 import { Product } from './components/product/Product.jsx';
+import Authorization from './components/page_authorization/Authorization.jsx';
+import { Registration } from './components/page_registration/Registration.jsx';
 import { AboutUs } from './components/page_about_us/AboutUs.jsx';
 import { Footer } from './components/footer/Footer.jsx';
-
-let ID = "5bf537dca53801fa3459dfa4"
 
 class App extends Component {
   constructor() {
@@ -17,7 +17,9 @@ class App extends Component {
     this.httpService = new HTTPService();
     this.setSidebarMode = this.setSidebarMode.bind(this);
     this.getProductID = this.getProductID.bind(this);
+    this.setAccess = this.setAccess.bind(this);
     this.state = {
+      isAccess: false,
       selectedProduct: [],
       isSidebarOpened: false,
       sidebar_links: [
@@ -66,12 +68,21 @@ class App extends Component {
     };
   }
 
+  setAccess(access) {
+    this.setState((oldState) => {
+      const newState = Object.assign({}, oldState);
+      newState.isAccess = access;
+      return newState;
+    });
+  }
+
   getProductID(id) {
     this.httpService.get('http://localhost:4002/api/v1/phones/' + `${id}`, (selectedProduct) => {
       this.setState((oldState) => Object.assign({}, oldState, { selectedProduct }));
     }, (e) => {
       console.log(e); //если все плохо, то приходит какой-то callback
     });
+
   }
 
   setSidebarMode(value) {
@@ -96,7 +107,7 @@ class App extends Component {
     return <Router>
       <div className="app" >
         <header className="app__header">
-          <Header />
+  <Route path="/" component={() => <Header isAccess={this.state.isAccess}/>} />
         </header>
         <div className="app__main">
           <div className={classSidebarNames}>
@@ -106,8 +117,10 @@ class App extends Component {
           <section className={classSectionNames}>
             {/* переход на catalog, который по умолчанию есть root page, exact = true указывает на то, 
             что если у нас есть чисто / в адресе, то это home page(catalog)*/}
-            <Route path="/" exact={true} component={() => <Catalog productID={this.getProductID} />} />
-            {this.state.selectedProduct.length !== 0 ? <Route path={"/" + `${this.state.selectedProduct._id}`} component={() => <Product {...this.state.selectedProduct} />} /> : console.log("Empty product")}
+            <Route path="/" exact={true} component={() => <Catalog productID={this.getProductID} isAccess={this.state.isAccess} {...this.state.products} />} />
+            {this.state.selectedProduct.length !== 0 ? <Route path={"/" + `${this.state.selectedProduct._id}`} component={() => <Product {...this.state.selectedProduct} />} /> : console.log()}
+            <Route path='/sign_in' component={() => <Authorization authorized={this.setAccess} />} />
+            {/* <Route path='/sign_up' component={Registration} /> */}
             <Route path='/about_us' component={AboutUs} />
           </section>
           <footer className={classFooterNames}>

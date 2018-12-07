@@ -1,0 +1,7 @@
+[
+    {
+        "id": "id_unique_admin",
+        "login": "admin",
+        "password": "admin"
+    }
+]

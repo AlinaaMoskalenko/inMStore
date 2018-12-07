@@ -1,0 +1,34 @@
+@import "../../../styles/variables.scss";
+@import "../../../styles/mixins.scss";
+
+.registration {
+  height: 100%;
+  overflow: auto;
+  margin: 25px;
+  display: flex;
+  flex-direction: column;
+  &__back-link {
+    text-decoration: none;
+    margin-bottom: 25px;
+  }
+  &__back-to-home-page {
+    display: flex;
+    align-items: center;
+    max-width: max-content;
+    font-weight: 400;
+    font-size: 18px;
+    cursor: pointer;
+    &:hover {
+      color: $main-color;
+    }
+    @include xs-mobile {
+      font-size: 16px;
+    }
+  }
+  &__arrow-to-home-page {
+    font-size: 16px;
+    @include xs-mobile {
+      font-size: 14px;
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import './Header.scss';
+import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
 export class Header extends React.Component {
     constructor() {
@@ -9,6 +10,7 @@ export class Header extends React.Component {
         this.inputValueChange = this.inputValueChange.bind(this);
         this.onReset = this.onReset.bind(this);
         this.state = {
+            isAccess: false,
             searchRowOpened: false,
             inputValue: '',
             isInputSearchOpened: false,
@@ -24,6 +26,15 @@ export class Header extends React.Component {
             ],
         }
     }
+
+    componentDidMount() {
+        this.setState((oldState) => {
+            const newState = Object.assign({}, oldState);
+            newState.isAccess = this.props.isAccess;
+            return newState;
+        });
+    }
+
     toggleSearchRow() {
         this.setState((oldState) => {
             const newState = Object.assign({}, oldState);
@@ -72,6 +83,19 @@ export class Header extends React.Component {
             classNamesSearchIcon += "btn-search_opened";
         }
 
+        let button;
+        if (this.state.isAccess) {
+            button = <Link to={'/'} className="header__button"
+                title="Sign out">
+                <i className="icon icon__sign mdc-icon-button material-icons">exit_to_app</i>
+            </Link>
+        } else {
+            button = <Link to={'/sign_in'} className="header__button"
+                title="Sign in">
+                <i className="icon icon__sign mdc-icon-button material-icons">perm_identity</i>
+            </Link>
+        }
+
         return <div className="header">
             <div className="header__logo">
                 <div className="logo logo__icon"></div>
@@ -94,10 +118,7 @@ export class Header extends React.Component {
                             <i className="icon icon__search mdc-icon-button material-icons">search</i>
                         </button>
                     </div>
-                    <button className="header__button"
-                        title="Sign in">
-                        <i className="icon icon__sign mdc-icon-button material-icons">perm_identity</i>
-                    </button>
+                    {button}
                 </div>
             </div>
         </div>

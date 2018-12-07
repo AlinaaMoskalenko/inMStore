@@ -91,5 +91,8 @@
   }
   &__add-to-wishlist {
     color: #8300ee;
+    &_hidden {
+      display: none;
+    }
   }
 }
