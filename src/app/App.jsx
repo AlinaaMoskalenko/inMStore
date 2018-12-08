@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.scss';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 import { HTTPService } from "./components/http-service/http-service";
-import { Header } from './components/header/Header.jsx';
+import Header from './components/header/Header.jsx';
 import { GlobalSidebar } from './components/global-sidebar/GlobalSidebar.jsx';
 import { Catalog } from './components/catalog/Catalog.jsx';
 import { Product } from './components/product/Product.jsx';
@@ -107,7 +107,7 @@ class App extends Component {
     return <Router>
       <div className="app" >
         <header className="app__header">
-  <Route path="/" component={() => <Header isAccess={this.state.isAccess}/>} />
+          <Route path="/" component={() => <Header isAccess={this.state.isAccess} authorized={this.setAccess}/>} />
         </header>
         <div className="app__main">
           <div className={classSidebarNames}>
@@ -118,7 +118,7 @@ class App extends Component {
             {/* переход на catalog, который по умолчанию есть root page, exact = true указывает на то, 
             что если у нас есть чисто / в адресе, то это home page(catalog)*/}
             <Route path="/" exact={true} component={() => <Catalog productID={this.getProductID} isAccess={this.state.isAccess} {...this.state.products} />} />
-            {this.state.selectedProduct.length !== 0 ? <Route path={"/" + `${this.state.selectedProduct._id}`} component={() => <Product {...this.state.selectedProduct} />} /> : console.log()}
+            {this.state.selectedProduct.length !== 0 ? <Route path={"/" + `${this.state.selectedProduct._id}`} component={() => <Product {...this.state.selectedProduct} isAccess = {this.state.isAccess}/>} /> : console.log()}
             <Route path='/sign_in' component={() => <Authorization authorized={this.setAccess} />} />
             {/* <Route path='/sign_up' component={Registration} /> */}
             <Route path='/about_us' component={AboutUs} />

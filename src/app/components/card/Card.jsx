@@ -25,7 +25,6 @@ export class Card extends React.Component {
 
     componentDidMount() {
         const { _id, isAccess } = this.props;
-        console.log(this.state.arrayActionButtons[1].href);
         this.setState((oldState) => {
             const newState = Object.assign({}, oldState);
             newState.arrayActionButtons[0].href = '/' + _id;

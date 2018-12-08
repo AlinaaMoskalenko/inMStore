@@ -160,14 +160,21 @@
     }
   }
   &__button {
-    margin: 5px 0;
-    &_add-to-cart {
-      margin-right: 20px;
-      @include xs-mobile {
-        margin-right: 0;
-        @include landscape {
-          margin-right: 25px;
+    display: none;
+    &_visible {
+      margin: 5px 0;
+      &_add-to-cart {
+        margin-right: 20px;
+        @include xs-mobile {
+          margin-right: 0;
+          @include landscape {
+            margin-right: 25px;
+          }
         }
+      }
+      &_buy-button{
+        max-width: 150px;
+        width:100%;
       }
     }
   }

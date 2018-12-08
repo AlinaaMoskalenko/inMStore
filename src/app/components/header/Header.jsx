@@ -1,8 +1,8 @@
 import * as React from 'react';
 import './Header.scss';
-import { HashRouter as Router, Route, Link } from 'react-router-dom';
+import { HashRouter as Router, Route, Link, withRouter } from 'react-router-dom';
 
-export class Header extends React.Component {
+class Header extends React.Component {
     constructor() {
         super();
         this.toggleSearchRow = this.toggleSearchRow.bind(this);
@@ -28,6 +28,7 @@ export class Header extends React.Component {
     }
 
     componentDidMount() {
+        // debugger;
         this.setState((oldState) => {
             const newState = Object.assign({}, oldState);
             newState.isAccess = this.props.isAccess;
@@ -68,7 +69,20 @@ export class Header extends React.Component {
         });
     }
 
+    onClick() {
+        // this.state.isAccess ? this.props.history.push('/') : console.log()
+        if (this.state.isAccess) {
+            this.setState((oldState) => {
+                const newState = Object.assign({}, oldState);
+                newState.isAccess = !oldState.isAccess;
+                return newState;
+            });
+        }
+        this.props.authorized(false);
+    }
+
     render() {
+        // console.log(this.state.isAccess);
         const navItem = this.state.navItem.map((item, i) => {
             return <a key={i} href={item.href} className="nav__link">
                 {item.title}
@@ -85,12 +99,12 @@ export class Header extends React.Component {
 
         let button;
         if (this.state.isAccess) {
-            button = <Link to={'/'} className="header__button"
-                title="Sign out">
+            button = <button className="header__button"
+                title="Sign out" onClick={this.onClick.bind(this)}>
                 <i className="icon icon__sign mdc-icon-button material-icons">exit_to_app</i>
-            </Link>
+            </button>
         } else {
-            button = <Link to={'/sign_in'} className="header__button"
+            button = <Link to="/sign_in" className="header__button"
                 title="Sign in">
                 <i className="icon icon__sign mdc-icon-button material-icons">perm_identity</i>
             </Link>
@@ -124,3 +138,4 @@ export class Header extends React.Component {
         </div>
     }
 }
+export default withRouter(Header);

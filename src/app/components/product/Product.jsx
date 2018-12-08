@@ -3,10 +3,11 @@ import './Product.scss';
 import { Specifications } from './specifications/Specifications.jsx';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
-
-const ADD_TO_CART_CLASS_NAMES = 'product__button product__button_add-to-cart mdc-button mdc-button--outlined';
-const ADD_TO_CART_CLASS_NAMES_ACTIVE = 'product__button_add-to-cart mdc-button mdc-icon-button--on';
-const ADD_TO_WISH_LIST_CLASS_NAMES = 'product__button mdc-button mdc-button--outlined';
+// let ADD_TO_CART_CLASS_NAMES;
+// let ADD_TO_WISH_LIST_CLASS_NAMES;
+// let ADD_TO_CART_CLASS_NAMES = 'product__button product__button_visible_add-to-cart mdc-button mdc-button--outlined ';
+const ADD_TO_CART_CLASS_NAMES_ACTIVE = 'product__button_visible_add-to-cart mdc-button mdc-icon-button--on';
+// let ADD_TO_WISH_LIST_CLASS_NAMES = 'product__button mdc-button mdc-button--outlined ';
 const ADD_TO_WISH_LIST_CLASS_NAMES_ACTIVE = 'mdc-button mdc-icon-button--on';
 
 export class Product extends React.Component {
@@ -18,12 +19,13 @@ export class Product extends React.Component {
         this.getActiveTabID = this.getActiveTabID.bind(this);
         this.toggleAccordion = this.toggleAccordion.bind(this);
         this.state = {
+            isAccess: false,
             isActiveTab: 'tab_0',
             isActiveImg: 0,
             addToCartTitle: 'Add to cart',
-            addToCartStyleClassName: ADD_TO_CART_CLASS_NAMES,
+            // addToCartStyleClassName: ADD_TO_CART_CLASS_NAMES,
             addToWishListTitle: 'Add to wish list',
-            addToWishListStyleClassName: ADD_TO_WISH_LIST_CLASS_NAMES,
+            // addToWishListStyleClassName: ADD_TO_WISH_LIST_CLASS_NAMES,
             specificationTitle: [
                 { title: "Android" },
                 { title: "Battery" },
@@ -40,6 +42,16 @@ export class Product extends React.Component {
     }
 
     componentDidMount() {
+        const { isAccess } = this.props;
+
+        this.setState((oldState) => {
+            const newState = Object.assign({}, oldState);
+            newState.isAccess = isAccess;
+            return newState;
+        });
+
+
+
         window.addEventListener('resize', () => {
             this.setState((oldState) => {
                 const newState = Object.assign({}, oldState);
@@ -71,7 +83,7 @@ export class Product extends React.Component {
             this.setState((oldState) => {
                 const newState = Object.assign({}, oldState);
                 newState.addToCartTitle = 'Add to cart';
-                newState.addToCartStyleClassName = ADD_TO_CART_CLASS_NAMES;
+                // newState.addToCartStyleClassName = ADD_TO_CART_CLASS_NAMES;
                 return newState;
             });
         }
@@ -89,7 +101,7 @@ export class Product extends React.Component {
             this.setState((oldState) => {
                 const newState = Object.assign({}, oldState);
                 newState.addToWishListTitle = 'Add to wish list';
-                newState.addToWishListStyleClassName = ADD_TO_WISH_LIST_CLASS_NAMES;
+                // newState.addToWishListStyleClassName = ADD_TO_WISH_LIST_CLASS_NAMES;
                 return newState;
             });
         }
@@ -109,7 +121,6 @@ export class Product extends React.Component {
     }
 
     render() {
-        // console.log(window.location.hash);
         const { _id, additionalFeatures, price, name, images, description } = this.props;
 
         let counter = 0;
@@ -128,6 +139,20 @@ export class Product extends React.Component {
         for (let i = 0; i < counter; i++) {
             let classToggleNames = (i === +this.state.isActiveImg) ? "image-toggle image-toggle_focused" : "image-toggle";
             imgToggle[i] = <button id={i} key={i} className={classToggleNames}></button>
+        }
+
+        let buyButtonClassName = "product__button_visible_buy-button mdc-button mdc-button--outlined "
+        let addToCartStyleClassName = "product__button_visible_add-to-cart mdc-button mdc-button--outlined ";
+        let addToWishListStyleClassName = "mdc-button mdc-button--outlined ";
+
+        if (this.state.isAccess) {
+            buyButtonClassName += "product__button";
+            addToCartStyleClassName += "product__button_visible";
+            addToWishListStyleClassName += "product__button_visible";
+        } else {
+            buyButtonClassName += "product__button_visible"
+            addToCartStyleClassName += "product__button";
+            addToWishListStyleClassName += "product__button";
         }
 
         let tabContent;
@@ -239,13 +264,17 @@ export class Product extends React.Component {
                         <div className="product__description product__description_first-child">{description}</div>
                     </div>
                     <div className="conteiner__button">
-                        <button className={this.state.addToCartStyleClassName}
+                        <Link to ="/sign_in" className={buyButtonClassName}>
+                            <i className="icon material-icons">shopping_basket</i>
+                            Buy
+                        </Link>
+                        <button className={addToCartStyleClassName}
                             onClick={this.addToCart}>
                             <i className="icon icon_active-cart material-icons mdc-icon-button__icon mdc-icon-button__icon--on">shopping_cart</i>
                             <i className="icon material-icons mdc-icon-button__icon">add_shopping_cart</i>
                             {this.state.addToCartTitle}
                         </button>
-                        <button className={this.state.addToWishListStyleClassName}
+                        <button className={addToWishListStyleClassName}
                             onClick={this.addToWishlist}>
                             <i className="icon icon_active-favorite material-icons mdc-icon-button__icon mdc-icon-button__icon--on">favorite</i>
                             <i className="icon material-icons mdc-icon-button__icon">favorite_border</i>
