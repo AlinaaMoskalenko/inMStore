@@ -1,15 +1,15 @@
 {
-  "main.css": "/inMStore/static/css/main.ece78d57.chunk.css",
-  "main.js": "/inMStore/static/js/main.2e77b4c4.chunk.js",
-  "main.js.map": "/inMStore/static/js/main.2e77b4c4.chunk.js.map",
-  "static/js/1.55b5545d.chunk.js": "/inMStore/static/js/1.55b5545d.chunk.js",
-  "static/js/1.55b5545d.chunk.js.map": "/inMStore/static/js/1.55b5545d.chunk.js.map",
+  "main.css": "/inMStore/static/css/main.6d21ea54.chunk.css",
+  "main.js": "/inMStore/static/js/main.7cbb553c.chunk.js",
+  "main.js.map": "/inMStore/static/js/main.7cbb553c.chunk.js.map",
+  "static/js/1.e64c61db.chunk.js": "/inMStore/static/js/1.e64c61db.chunk.js",
+  "static/js/1.e64c61db.chunk.js.map": "/inMStore/static/js/1.e64c61db.chunk.js.map",
   "runtime~main.js": "/inMStore/static/js/runtime~main.5fd98fad.js",
   "runtime~main.js.map": "/inMStore/static/js/runtime~main.5fd98fad.js.map",
   "static/media/index.scss": "/inMStore/static/media/Robotoblackitalic.ca9c9a75.ttf",
   "static/media/Footer.scss": "/inMStore/static/media/logo_inMStore.e1f59a14.png",
-  "static/css/main.ece78d57.chunk.css.map": "/inMStore/static/css/main.ece78d57.chunk.css.map",
+  "static/css/main.6d21ea54.chunk.css.map": "/inMStore/static/css/main.6d21ea54.chunk.css.map",
   "index.html": "/inMStore/index.html",
-  "precache-manifest.4ab8a92f929cffbc52d3177080ff9ecf.js": "/inMStore/precache-manifest.4ab8a92f929cffbc52d3177080ff9ecf.js",
+  "precache-manifest.d4e0ac786a468a4b73473a54a7f8ac0b.js": "/inMStore/precache-manifest.d4e0ac786a468a4b73473a54a7f8ac0b.js",
   "service-worker.js": "/inMStore/service-worker.js"
 }
