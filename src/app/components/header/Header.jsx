@@ -17,7 +17,7 @@ class Header extends React.Component {
             navItem: [
                 {
                     title: "Catalog",
-                    href: "/",
+                    href: "#/",
                 },
                 {
                     title: "About us",

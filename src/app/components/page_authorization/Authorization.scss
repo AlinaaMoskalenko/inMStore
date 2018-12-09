@@ -159,3 +159,9 @@
 .input-underline:after {
   right: 50%;
 }
+
+
+.mdc-button--raised:not(:disabled){
+  background-color: $main-color;
+
+}

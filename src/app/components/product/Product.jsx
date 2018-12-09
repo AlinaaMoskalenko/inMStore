@@ -3,13 +3,6 @@ import './Product.scss';
 import { Specifications } from './specifications/Specifications.jsx';
 import { HashRouter as Router, Route, Link } from 'react-router-dom';
 
-// let ADD_TO_CART_CLASS_NAMES;
-// let ADD_TO_WISH_LIST_CLASS_NAMES;
-// let ADD_TO_CART_CLASS_NAMES = 'product__button product__button_visible_add-to-cart mdc-button mdc-button--outlined ';
-const ADD_TO_CART_CLASS_NAMES_ACTIVE = 'product__button_visible_add-to-cart mdc-button mdc-icon-button--on';
-// let ADD_TO_WISH_LIST_CLASS_NAMES = 'product__button mdc-button mdc-button--outlined ';
-const ADD_TO_WISH_LIST_CLASS_NAMES_ACTIVE = 'mdc-button mdc-icon-button--on';
-
 export class Product extends React.Component {
     constructor() {
         super();
@@ -23,9 +16,7 @@ export class Product extends React.Component {
             isActiveTab: 'tab_0',
             isActiveImg: 0,
             addToCartTitle: 'Add to cart',
-            // addToCartStyleClassName: ADD_TO_CART_CLASS_NAMES,
             addToWishListTitle: 'Add to wish list',
-            // addToWishListStyleClassName: ADD_TO_WISH_LIST_CLASS_NAMES,
             specificationTitle: [
                 { title: "Android" },
                 { title: "Battery" },
@@ -50,8 +41,6 @@ export class Product extends React.Component {
             return newState;
         });
 
-
-
         window.addEventListener('resize', () => {
             this.setState((oldState) => {
                 const newState = Object.assign({}, oldState);
@@ -71,37 +60,45 @@ export class Product extends React.Component {
         // const coords = event.target.getBoundingClientRect();
     }
 
-    addToCart() {
+    addToCart(event) {
         if (this.state.addToCartTitle === "Add to cart") {
+            event.target.classList.remove('mdc-button--outlined');
+            event.target.classList.add('mdc-icon-button--on');
+
             this.setState((oldState) => {
                 const newState = Object.assign({}, oldState);
                 newState.addToCartTitle = 'Added to cart';
-                newState.addToCartStyleClassName = ADD_TO_CART_CLASS_NAMES_ACTIVE;
                 return newState;
             });
         } else {
+            event.target.classList.add('mdc-button--outlined');
+            event.target.classList.remove('mdc-icon-button--on');
+
             this.setState((oldState) => {
                 const newState = Object.assign({}, oldState);
                 newState.addToCartTitle = 'Add to cart';
-                // newState.addToCartStyleClassName = ADD_TO_CART_CLASS_NAMES;
                 return newState;
             });
         }
     }
 
-    addToWishlist() {
+    addToWishlist(event) {
         if (this.state.addToWishListTitle === "Add to wish list") {
+            event.target.classList.remove('mdc-button--outlined');
+            event.target.classList.add('mdc-icon-button--on');
+
             this.setState((oldState) => {
                 const newState = Object.assign({}, oldState);
                 newState.addToWishListTitle = 'Added to wish list';
-                newState.addToWishListStyleClassName = ADD_TO_WISH_LIST_CLASS_NAMES_ACTIVE;
                 return newState;
             });
         } else {
+            event.target.classList.add('mdc-button--outlined');
+            event.target.classList.remove('mdc-icon-button--on');
+
             this.setState((oldState) => {
                 const newState = Object.assign({}, oldState);
                 newState.addToWishListTitle = 'Add to wish list';
-                // newState.addToWishListStyleClassName = ADD_TO_WISH_LIST_CLASS_NAMES;
                 return newState;
             });
         }
@@ -264,7 +261,7 @@ export class Product extends React.Component {
                         <div className="product__description product__description_first-child">{description}</div>
                     </div>
                     <div className="conteiner__button">
-                        <Link to ="/sign_in" className={buyButtonClassName}>
+                        <Link to="/sign_in" className={buyButtonClassName}>
                             <i className="icon material-icons">shopping_basket</i>
                             Buy
                         </Link>
