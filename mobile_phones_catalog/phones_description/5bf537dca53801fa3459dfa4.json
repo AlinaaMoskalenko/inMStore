@@ -1,0 +1,66 @@
+{
+    "_id": "5bf537dca53801fa3459dfa4",
+    "additionalFeatures": "Adobe Flash Player 10, Quadband GSM Worldphone, Advance Business Security, Complex Password Secure, Review & Edit Documents with Quick Office, Personal 3G Mobile Hotspot for up to 5 WiFi enabled Devices, Advanced Social Networking brings all social content into a single homescreen widget",
+    "android": {
+    "ui": "",
+    "os": "Android 2.2"
+    },
+    "price": 398,
+    "battery": {
+    "type": "Lithium Ion (Li-Ion) (1400 mAH)",
+    "talkTime": "7 hours",
+    "standbyTime": "330 hours"
+    },
+    "camera": {
+    "primary": "5.0 megapixels",
+    "features": [
+    "Flash",
+    "Video"
+    ]
+    },
+    "connectivity": {
+    "wifi": "802.11 b/g/n",
+    "infrared": false,
+    "gps": true,
+    "cell": "800/1900 CDMA EVDO Rev. A with dual diversity antenna, 850/900/1800/1900MHz GSM, GPRS Class 12, EDGE Class 12, 850/1900/2100 WCDMA (category 9/10), HSDPA 10.2mbps, HSUPA 1.8 mbps",
+    "bluetooth": "Bluetooth 2.1"
+    },
+    "display": {
+    "touchScreen": true,
+    "screenSize": "3.1 inches",
+    "screenResolution": "HVGA (480 x 320)"
+    },
+    "hardware": {
+    "usb": "USB 2.0",
+    "physicalKeyboard": true,
+    "fmRadio": false,
+    "cpu": "1 GHz TI OMAP",
+    "audioJack": "3.5mm",
+    "accelerometer": true
+    },
+    "name": "DROID™ Pro by Motorola",
+    "sizeAndWeight": {
+    "weight": "134.0 grams",
+    "dimensions": [
+    "61.0 mm (w)",
+    "119.0 mm (h)",
+    "11.7 mm (d)"
+    ]
+    },
+    "storage": {
+    "ram": "512MB",
+    "flash": "2048MB"
+    },
+    "images": [
+    "img/phones/droid-pro-by-motorola.0.jpg",
+    "img/phones/droid-pro-by-motorola.1.jpg"
+    ],
+    "description": [
+    "Access your work directory, email or calendar with DROID Pro by Motorola., an Android-for-business smartphone with corporate-level security. It features both a QWERTY keyboard and touchscreen, a speedy 1 GHz processor and Adobe® Flash® Player 10."
+    ],
+    "availability": [
+    "Verizon"
+    ],
+    "__v": 0,
+    "average_rating": 0
+    }

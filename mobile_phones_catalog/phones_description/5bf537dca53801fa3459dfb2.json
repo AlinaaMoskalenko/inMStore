@@ -1,0 +1,66 @@
+{
+    "_id": "5bf537dca53801fa3459dfb2",
+    "additionalFeatures": "Trackball Navigation Control",
+    "android": {
+    "ui": "",
+    "os": "Android 2.2"
+    },
+    "price": 500,
+    "battery": {
+    "type": "Lithium Ion (Li-Ion) (1130 mAH)",
+    "talkTime": "4 hours",
+    "standbyTime": ""
+    },
+    "camera": {
+    "primary": "3.2 megapixels",
+    "features": [
+    "Video"
+    ]
+    },
+    "connectivity": {
+    "wifi": "802.11 b/g",
+    "infrared": false,
+    "gps": true,
+    "cell": "CDMA2000 1xEV-DO Rev.A",
+    "bluetooth": "Bluetooth 2.1"
+    },
+    "display": {
+    "touchScreen": true,
+    "screenSize": "3.5 inches",
+    "screenResolution": "WVGA (800 x 480)"
+    },
+    "hardware": {
+    "usb": "USB 2.0",
+    "physicalKeyboard": false,
+    "fmRadio": false,
+    "cpu": "600MHz Qualcomm MSM7627",
+    "audioJack": "3.5mm",
+    "accelerometer": true
+    },
+    "name": "SANYO ZIO",
+    "sizeAndWeight": {
+    "weight": "105.0 grams",
+    "dimensions": [
+    "58.6 mm (w)",
+    "116.0 mm (h)",
+    "12.2 mm (d)"
+    ]
+    },
+    "storage": {
+    "ram": "256MB",
+    "flash": "130MB"
+    },
+    "images": [
+    "img/phones/sanyo-zio.0.jpg",
+    "img/phones/sanyo-zio.1.jpg",
+    "img/phones/sanyo-zio.2.jpg"
+    ],
+    "description": [
+    "Zio uses CDMA2000 1xEV-DO rev. A and Wi-Fi technologies and features a 3.5-inch WVGA touch-screen display as a backdrop for a fully customizable mobile multimedia experience.  Along with the touch-screen, a trackball helps users navigate features such as the 3.2 MP camera with video record/playback, media player and full HTML Web browser.  Zio supports up to 32GB through its external microSD memory slot."
+    ],
+    "availability": [
+    "Sprint"
+    ],
+    "__v": 0,
+    "average_rating": 0
+    }

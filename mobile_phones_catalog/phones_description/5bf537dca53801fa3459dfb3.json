@@ -1,0 +1,67 @@
+{
+    "_id": "5bf537dca53801fa3459dfb3",
+    "additionalFeatures": "Accessibility features: tactile QWERTY keyboard, trackpad, three programmable keys, camera button",
+    "android": {
+    "ui": "Android",
+    "os": "Android 2.2"
+    },
+    "price": 425,
+    "battery": {
+    "type": "Lithium Ion (Li-Ion) (1300 mAH)",
+    "talkTime": "7 hours",
+    "standbyTime": "420 hours"
+    },
+    "camera": {
+    "primary": "5.0 megapixels",
+    "features": [
+    "Flash",
+    "Video"
+    ]
+    },
+    "connectivity": {
+    "wifi": "802.11 b/g/n",
+    "infrared": false,
+    "gps": true,
+    "cell": "GSM: 850, 900, 1800, 1900  UMTS: Yes",
+    "bluetooth": "Bluetooth 2.1"
+    },
+    "display": {
+    "touchScreen": true,
+    "screenSize": "3.7 inches",
+    "screenResolution": "WVGA (800 x 480)"
+    },
+    "hardware": {
+    "usb": "USB 2.0",
+    "physicalKeyboard": true,
+    "fmRadio": false,
+    "cpu": "800 MHz Qualcomm® Snapdragon™ MSM7230",
+    "audioJack": "3.5mm",
+    "accelerometer": true
+    },
+    "name": "T-Mobile G2",
+    "sizeAndWeight": {
+    "weight": "180.0 grams",
+    "dimensions": [
+    "60.4 mm (w)",
+    "119.0 mm (h)",
+    "14.2 mm (d)"
+    ]
+    },
+    "storage": {
+    "ram": "512MB",
+    "flash": "4000MB"
+    },
+    "images": [
+    "img/phones/t-mobile-g2.0.jpg",
+    "img/phones/t-mobile-g2.1.jpg",
+    "img/phones/t-mobile-g2.2.jpg"
+    ],
+    "description": [
+    "The T-Mobile G1 was the world's first Android-powered phone. Launched nearly two years ago, it created an entirely new class of mobile phones and apps. Its successor, the T-Mobile G2 with Google, will continue the revolution.\n\nThe T-Mobile G2 will deliver tight integration with Google services and break new ground as the first smartphone designed to run at 4G speeds on our new HSPA+ network."
+    ],
+    "availability": [
+    "T-Mobile"
+    ],
+    "__v": 0,
+    "average_rating": 0
+    }

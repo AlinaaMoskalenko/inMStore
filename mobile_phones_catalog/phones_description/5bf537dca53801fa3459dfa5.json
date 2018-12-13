@@ -1,0 +1,67 @@
+{
+    "_id": "5bf537dca53801fa3459dfa5",
+    "additionalFeatures": "Accessibility features: Tactile QWERTY keyboard, four-direction keypad, start and end call buttons, dedicated number keys, camera button, TalkBack screen reader",
+    "android": {
+    "ui": "LG Home",
+    "os": "Android 2.1"
+    },
+    "price": 399,
+    "battery": {
+    "type": "Lithium Ion (Li-Ion) (1500 mAH)",
+    "talkTime": "8 hours",
+    "standbyTime": "500 hours"
+    },
+    "camera": {
+    "primary": "3.0 megapixels",
+    "features": [
+    "Flash",
+    "Video"
+    ]
+    },
+    "connectivity": {
+    "wifi": "802.11 b/g",
+    "infrared": false,
+    "gps": true,
+    "cell": "1.9 GHz CDMA PCS, 800 MHz CDMA, EVDO Rev. A, 1xRTT",
+    "bluetooth": "Bluetooth 2.1"
+    },
+    "display": {
+    "touchScreen": true,
+    "screenSize": "3.2 inches",
+    "screenResolution": "WVGA (800 x 480)"
+    },
+    "hardware": {
+    "usb": "USB 2.0",
+    "physicalKeyboard": true,
+    "fmRadio": false,
+    "cpu": "600 MHz Qualcomm MSM7627",
+    "audioJack": "",
+    "accelerometer": true
+    },
+    "name": "LG Axis",
+    "sizeAndWeight": {
+    "weight": "158.0 grams",
+    "dimensions": [
+    "56.0 mm (w)",
+    "116.0 mm (h)",
+    "16.0 mm (d)"
+    ]
+    },
+    "storage": {
+    "ram": "256MB",
+    "flash": "126MB"
+    },
+    "images": [
+    "img/phones/lg-axis.0.jpg",
+    "img/phones/lg-axis.1.jpg",
+    "img/phones/lg-axis.2.jpg"
+    ],
+    "description": [
+    "Android plus QWERTY is a powerful duo. LG Axis melds a speedy UI with the limitless micro-entertainment of 80,000+ apps including voice-activated Google. Feel the tactile vibration on its tempered glass touchscreen. Take the fuzziness out of your fun with a 3.2MP camera that does 360° panoramics. And customize your home screens with shortcuts to your apps, favorites, and widgets. It's the centerpiece of your life."
+    ],
+    "availability": [
+    "Cellular South"
+    ],
+    "__v": 0,
+    "average_rating": 0
+    }

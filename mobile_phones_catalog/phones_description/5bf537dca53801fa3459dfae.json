@@ -1,0 +1,66 @@
+{
+    "_id": "5bf537dca53801fa3459dfae",
+    "additionalFeatures": "3.2” Full touch screen with Advanced anti smudge, anti reflective and anti scratch glass; Swype text input for easy and fast message creation; multiple messaging options, including text with threaded messaging for organized, easy-to-follow text; Social Community support, including Facebook and MySpace; Next generation Address book; Visual Voice Mail\n",
+    "android": {
+    "ui": "TouchWiz",
+    "os": "Android 2.1"
+    },
+    "price": 280,
+    "battery": {
+    "type": "Nickel Cadmium (NiCd) (1500 mAH)",
+    "talkTime": "7 hours",
+    "standbyTime": "800 hours"
+    },
+    "camera": {
+    "primary": "3.0 megapixels",
+    "features": [
+    ""
+    ]
+    },
+    "connectivity": {
+    "wifi": "802.11 b/g",
+    "infrared": false,
+    "gps": true,
+    "cell": "3G/CDMA : 850MHz/1900MHz\n",
+    "bluetooth": "Bluetooth 3.0"
+    },
+    "display": {
+    "touchScreen": true,
+    "screenSize": "3.2 inches",
+    "screenResolution": "WQVGA (400 x 240)"
+    },
+    "hardware": {
+    "usb": "USB 2.0",
+    "physicalKeyboard": false,
+    "fmRadio": false,
+    "cpu": "800 MHz",
+    "audioJack": "3.5mm",
+    "accelerometer": true
+    },
+    "name": "Samsung Gem™",
+    "sizeAndWeight": {
+    "weight": "110.0 grams",
+    "dimensions": [
+    "55.5 mm (w)",
+    "113.0 mm (h)",
+    "12.4 mm (d)"
+    ]
+    },
+    "storage": {
+    "ram": "256MB",
+    "flash": "220MB"
+    },
+    "images": [
+    "img/phones/samsung-gem.0.jpg",
+    "img/phones/samsung-gem.1.jpg",
+    "img/phones/samsung-gem.2.jpg"
+    ],
+    "description": [
+    "The Samsung Gem™ maps a route to a smarter mobile experience. By pairing one of the fastest processors in the category with the Android™ platform, the Gem delivers maximum multitasking speed and social networking capabilities to let you explore new territory online. A smart phone at an even smarter price is a real find, so uncover the Gem and discover what’s next."
+    ],
+    "availability": [
+    "Cellular South"
+    ],
+    "__v": 0,
+    "average_rating": 0
+    }
