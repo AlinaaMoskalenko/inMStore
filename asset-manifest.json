@@ -1,7 +1,7 @@
 {
   "main.css": "/inMStore/static/css/main.9e1e6384.chunk.css",
-  "main.js": "/inMStore/static/js/main.c9908614.chunk.js",
-  "main.js.map": "/inMStore/static/js/main.c9908614.chunk.js.map",
+  "main.js": "/inMStore/static/js/main.0a9e75eb.chunk.js",
+  "main.js.map": "/inMStore/static/js/main.0a9e75eb.chunk.js.map",
   "static/js/1.e64c61db.chunk.js": "/inMStore/static/js/1.e64c61db.chunk.js",
   "static/js/1.e64c61db.chunk.js.map": "/inMStore/static/js/1.e64c61db.chunk.js.map",
   "runtime~main.js": "/inMStore/static/js/runtime~main.5fd98fad.js",
@@ -10,6 +10,6 @@
   "static/media/Footer.scss": "/inMStore/static/media/logo_inMStore.e1f59a14.png",
   "static/css/main.9e1e6384.chunk.css.map": "/inMStore/static/css/main.9e1e6384.chunk.css.map",
   "index.html": "/inMStore/index.html",
-  "precache-manifest.a37d0d7acdb0c936c847a2556bf1323e.js": "/inMStore/precache-manifest.a37d0d7acdb0c936c847a2556bf1323e.js",
+  "precache-manifest.4270cc5ac9a4460ebbdc5d7ca61ad13a.js": "/inMStore/precache-manifest.4270cc5ac9a4460ebbdc5d7ca61ad13a.js",
   "service-worker.js": "/inMStore/service-worker.js"
 }

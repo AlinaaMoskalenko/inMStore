@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/inMStore/static/media/Robotoitalic.3dccb571.woff"
   },
   {
-    "revision": "c9908614b437aaabcf11",
+    "revision": "0a9e75ebba5d9e842eee",
     "url": "/inMStore/static/css/main.9e1e6384.chunk.css"
   },
   {
@@ -84,8 +84,8 @@ self.__precacheManifest = [
     "url": "/inMStore/static/media/Roboto.58bf8e0b.woff"
   },
   {
-    "revision": "c9908614b437aaabcf11",
-    "url": "/inMStore/static/js/main.c9908614.chunk.js"
+    "revision": "0a9e75ebba5d9e842eee",
+    "url": "/inMStore/static/js/main.0a9e75eb.chunk.js"
   },
   {
     "revision": "6422eac71f54ee5cd007dcf46fc0d22d",
@@ -116,20 +116,20 @@ self.__precacheManifest = [
     "url": "/inMStore/static/media/Robotothin.7faf23e1.ttf"
   },
   {
-    "revision": "e482899c966d4c297da133e0d4c04909",
-    "url": "/inMStore/static/media/Robotothinitalic.e482899c.ttf"
-  },
-  {
     "revision": "63d6f579b0db1fc75cc977a0539ce45f",
     "url": "/inMStore/static/media/Robotolight.63d6f579.ttf"
   },
   {
-    "revision": "38aa81d461c299fa9f0cb27726401996",
-    "url": "/inMStore/static/media/Robotomedium.38aa81d4.ttf"
+    "revision": "e482899c966d4c297da133e0d4c04909",
+    "url": "/inMStore/static/media/Robotothinitalic.e482899c.ttf"
   },
   {
     "revision": "c613ca81d36649b260700f3335d8f579",
     "url": "/inMStore/static/media/Roboto.c613ca81.ttf"
+  },
+  {
+    "revision": "38aa81d461c299fa9f0cb27726401996",
+    "url": "/inMStore/static/media/Robotomedium.38aa81d4.ttf"
   },
   {
     "revision": "1fc6a83d1e366dfe7babb690d33ba6fb",
@@ -164,7 +164,7 @@ self.__precacheManifest = [
     "url": "/inMStore/static/media/logo_inMStore.e1f59a14.png"
   },
   {
-    "revision": "2ee87ef4cabeac29eacc74bbff04efc9",
+    "revision": "d268f5dc70e749cab4a4515b88021408",
     "url": "/inMStore/index.html"
   }
 ];
