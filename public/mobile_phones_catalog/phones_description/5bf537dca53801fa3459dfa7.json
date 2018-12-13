@@ -1,0 +1,66 @@
+{
+    "_id": "5bf537dca53801fa3459dfa7",
+    "additionalFeatures": "Adobe® Flash® Lite® 3, DNLA, CrystalTalk™ PLUS technology",
+    "android": {
+    "ui": "MOTOBLUR™",
+    "os": "Android 2.1"
+    },
+    "price": 395,
+    "battery": {
+    "type": "Lithium Ion (Li-Ion) (1540 mAH)",
+    "talkTime": "6 hours",
+    "standbyTime": "216 hours"
+    },
+    "camera": {
+    "primary": "3.0 megapixels",
+    "features": [
+    "Video"
+    ]
+    },
+    "connectivity": {
+    "wifi": "802.11 b/g/n",
+    "infrared": false,
+    "gps": true,
+    "cell": "WCDMA 850/1900, GSM 850/900/1800/1900, HSDPA 7.2 Mbps (Category 7/8), EDGE Class 12, GPRS Class 12, HSUPA 2.0 Mbps",
+    "bluetooth": "Bluetooth 2.1"
+    },
+    "display": {
+    "touchScreen": true,
+    "screenSize": "3.7 inches",
+    "screenResolution": "WVGA (800 x 480)"
+    },
+    "hardware": {
+    "usb": "USB 2.0",
+    "physicalKeyboard": false,
+    "fmRadio": true,
+    "cpu": "800 Mhz",
+    "audioJack": "3.5mm",
+    "accelerometer": true
+    },
+    "name": "MOTOROLA BRAVO™ with MOTOBLUR™",
+    "sizeAndWeight": {
+    "weight": "130.0 grams",
+    "dimensions": [
+    "63.0 mm (w)",
+    "109.0 mm (h)",
+    "13.3 mm (d)"
+    ]
+    },
+    "storage": {
+    "ram": "",
+    "flash": ""
+    },
+    "images": [
+    "img/phones/motorola-bravo-with-motoblur.0.jpg",
+    "img/phones/motorola-bravo-with-motoblur.1.jpg",
+    "img/phones/motorola-bravo-with-motoblur.2.jpg"
+    ],
+    "description": [
+    "MOTOROLA BRAVO™ with MOTOBLUR™ with its large 3.7-inch touchscreen and web-browsing capabilities is sure to make an impression.  And it keeps your life updated and secure through MOTOBLUR."
+    ],
+    "availability": [
+    "AT&T"
+    ],
+    "__v": 0,
+    "average_rating": 0
+    }

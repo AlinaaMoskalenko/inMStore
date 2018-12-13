@@ -1,0 +1,69 @@
+{
+    "_id": "5bf537dca53801fa3459dfa9",
+    "additionalFeatures": "Blockbuster On Demand® movies and music downloads with connected music player\nWater-resistant and dustproof",
+    "android": {
+    "ui": "MOTOBLUR",
+    "os": "Android 2.1"
+    },
+    "price": 325,
+    "battery": {
+    "type": "Lithium Ion (Li-Ion) (1540 mAH)",
+    "talkTime": "6 hours",
+    "standbyTime": "400 hours"
+    },
+    "camera": {
+    "primary": "5.0 megapixels",
+    "features": [
+    "Flash",
+    "Video"
+    ]
+    },
+    "connectivity": {
+    "wifi": "802.11 b/g/n",
+    "infrared": false,
+    "gps": true,
+    "cell": "WCDMA 850/1700/2100, GSM 850/900/1800/1900, HSDPA 7.2 Mbps (Category 7/8), EDGE Class 12, GPRS Class 12, HSUPA 2.0 Mbps",
+    "bluetooth": "Bluetooth 2.1"
+    },
+    "display": {
+    "touchScreen": true,
+    "screenSize": "3.7 inches",
+    "screenResolution": "FWVGA (854 x 480)"
+    },
+    "hardware": {
+    "usb": "USB 2.0",
+    "physicalKeyboard": false,
+    "fmRadio": false,
+    "cpu": "800 MHz TI OMAP3610",
+    "audioJack": "3.5mm",
+    "accelerometer": true
+    },
+    "name": "Motorola DEFY™ with MOTOBLUR™",
+    "sizeAndWeight": {
+    "weight": "118.0 grams",
+    "dimensions": [
+    "59.0 mm (w)",
+    "107.0 mm (h)",
+    "13.4 mm (d)"
+    ]
+    },
+    "storage": {
+    "ram": "512MB",
+    "flash": "2000MB"
+    },
+    "images": [
+    "img/phones/motorola-defy-with-motoblur.0.jpg",
+    "img/phones/motorola-defy-with-motoblur.1.jpg",
+    "img/phones/motorola-defy-with-motoblur.2.jpg"
+    ],
+    "description": [
+    "DEFY with MOTOBLUR is ready for everything life throws your way. It's water-resistant and dustproof, with plenty of entertainment options; and, with MOTOBLUR, it automatically delivers messages and status updates right to your home screen."
+    ],
+    "availability": [
+    "SFR,",
+    "T-Mobile,",
+    "Vodafone"
+    ],
+    "__v": 0,
+    "average_rating": 0
+    }

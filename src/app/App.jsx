@@ -78,12 +78,16 @@ class App extends Component {
   }
 
   getProductID(id) {
-    this.httpService.get('http://localhost:4002/api/v1/phones/' + `${id}`, (selectedProduct) => {
+    // this.httpService.get('http://localhost:4002/api/v1/phones/' + `${id}`, (selectedProduct) => {
+    //   this.setState((oldState) => Object.assign({}, oldState, { selectedProduct }));
+    // }, (e) => {
+    //   console.log(e); //если все плохо, то приходит какой-то callback
+    // });
+    this.httpService.get('mobile_phones_catalog/phones_description/' + `${id}` + '.json', (selectedProduct) => {
       this.setState((oldState) => Object.assign({}, oldState, { selectedProduct }));
     }, (e) => {
       console.log(e); //если все плохо, то приходит какой-то callback
     });
-
   }
 
   setSidebarMode(value) {

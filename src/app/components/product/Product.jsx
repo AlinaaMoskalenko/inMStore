@@ -124,7 +124,8 @@ export class Product extends React.Component {
 
         const imgUrl = images.map((image, i) => {
             let classImageNames = (i === +this.state.isActiveImg) ? "image image_show" : "image";
-            image = "http://localhost:4002/api/v1/" + image;
+            // image = "http://localhost:4002/api/v1/" + image;
+            image = 'mobile_phones_catalog/' + image;
             counter++;
             return <img key={i}
                 src={image}

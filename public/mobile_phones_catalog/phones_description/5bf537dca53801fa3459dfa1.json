@@ -1,0 +1,69 @@
+{
+    "_id": "5bf537dca53801fa3459dfa1",
+    "additionalFeatures": "Front Facing 1.3MP Camera",
+    "android": {
+    "ui": "Dell Stage",
+    "os": "Android 2.2"
+    },
+    "price": 100,
+    "battery": {
+    "type": "Lithium Ion (Li-Ion) (2780 mAH)",
+    "talkTime": "",
+    "standbyTime": ""
+    },
+    "camera": {
+    "primary": "5.0 megapixels",
+    "features": [
+    "Flash",
+    "Video"
+    ]
+    },
+    "connectivity": {
+    "wifi": "802.11 b/g",
+    "infrared": false,
+    "gps": true,
+    "cell": "T-mobile HSPA+ @ 2100/1900/AWS/850 MHz",
+    "bluetooth": "Bluetooth 2.1"
+    },
+    "display": {
+    "touchScreen": true,
+    "screenSize": "7.0 inches",
+    "screenResolution": "WVGA (800 x 480)"
+    },
+    "hardware": {
+    "usb": "USB 2.0",
+    "physicalKeyboard": false,
+    "fmRadio": false,
+    "cpu": "nVidia Tegra T20",
+    "audioJack": "3.5mm",
+    "accelerometer": true
+    },
+    "name": "Dell Streak 7",
+    "sizeAndWeight": {
+    "weight": "450.0 grams",
+    "dimensions": [
+    "199.9 mm (w)",
+    "119.8 mm (h)",
+    "12.4 mm (d)"
+    ]
+    },
+    "storage": {
+    "ram": "512MB",
+    "flash": "16000MB"
+    },
+    "images": [
+    "img/phones/dell-streak-7.0.jpg",
+    "img/phones/dell-streak-7.1.jpg",
+    "img/phones/dell-streak-7.2.jpg",
+    "img/phones/dell-streak-7.3.jpg",
+    "img/phones/dell-streak-7.4.jpg"
+    ],
+    "description": [
+    "Introducing Dell™ Streak 7. Share photos, videos and movies together. It’s small enough to carry around, big enough to gather around. Android™ 2.2-based tablet with over-the-air upgrade capability for future OS releases.  A vibrant 7-inch, multitouch display with full Adobe® Flash 10.1 pre-installed.  Includes a 1.3 MP front-facing camera for face-to-face chats on popular services such as Qik or Skype.  16 GB of internal storage, plus Wi-Fi, Bluetooth and built-in GPS keeps you in touch with the world around you.  Connect on your terms. Save with 2-year contract or flexibility with prepaid pay-as-you-go plans"
+    ],
+    "availability": [
+    "T-Mobile"
+    ],
+    "__v": 0,
+    "average_rating": 0
+    }

@@ -1,0 +1,162 @@
+[
+    {
+    "_id": "5bf537dca53801fa3459dfa2",
+    "name": "Dell Venue",
+    "price": 250,
+    "imgUrl": "img/phones/dell-venue.0.jpg",
+    "description": "The Venue is the perfect one-touch, Smart Phone providing instant access to everything you love. All...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfa4",
+    "name": "DROID™ Pro by Motorola",
+    "price": 398,
+    "imgUrl": "img/phones/droid-pro-by-motorola.0.jpg",
+    "description": "Access your work directory, email or calendar with DROID Pro by Motorola., an Android-for-business s...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfa1",
+    "name": "Dell Streak 7",
+    "price": 100,
+    "imgUrl": "img/phones/dell-streak-7.0.jpg",
+    "description": "Introducing Dell™ Streak 7. Share photos, videos and movies together. It’s small enough to carry aro...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfa3",
+    "name": "DROID™ 2 Global by Motorola",
+    "price": 348,
+    "imgUrl": "img/phones/droid-2-global-by-motorola.0.jpg",
+    "description": "With Quad Band GSM, the DROID 2 Global can send email and make and receive calls from more than 200 ...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfa5",
+    "name": "LG Axis",
+    "price": 399,
+    "imgUrl": "img/phones/lg-axis.0.jpg",
+    "description": "Android plus QWERTY is a powerful duo. LG Axis melds a speedy UI with the limitless micro-entertainm...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfa6",
+    "name": "MOTOROLA ATRIX™ 4G",
+    "price": 250,
+    "imgUrl": "img/phones/motorola-atrix-4g.0.jpg",
+    "description": "MOTOROLA ATRIX 4G gives you dual-core processing power and the revolutionary webtop application. Wit...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfab",
+    "name": "MOTOROLA XOOM™",
+    "price": 240,
+    "imgUrl": "img/phones/motorola-xoom.0.jpg",
+    "description": "MOTOROLA XOOM has a super-powerful dual-core processor and Android™ 3.0 (Honeycomb) — the Android pl...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfb0",
+    "name": "Samsung Showcase™ a Galaxy S™ phone",
+    "price": 500,
+    "imgUrl": "img/phones/samsung-showcase-a-galaxy-s-phone.0.jpg",
+    "description": "Experience entertainment in a whole new light. The stylish and slim Samsung Showcase™, with its vivi...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfa8",
+    "name": "Motorola CHARM™ with MOTOBLUR™",
+    "price": 227,
+    "imgUrl": "img/phones/motorola-charm-with-motoblur.0.jpg",
+    "description": "Motorola CHARM fits easily in your pocket or palm. Includes MOTOBLUR so you can sync and merge your ...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfaa",
+    "name": "Motorola XOOM™ with Wi-Fi",
+    "price": 100,
+    "imgUrl": "img/phones/motorola-xoom-with-wi-fi.0.jpg",
+    "description": "Motorola XOOM with Wi-Fi has a super-powerful dual-core processor and Android™ 3.0 (Honeycomb) — the...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfa9",
+    "name": "Motorola DEFY™ with MOTOBLUR™",
+    "price": 325,
+    "imgUrl": "img/phones/motorola-defy-with-motoblur.0.jpg",
+    "description": "DEFY with MOTOBLUR is ready for everything life throws your way. It's water-resistant and dustproof,...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfa7",
+    "name": "MOTOROLA BRAVO™ with MOTOBLUR™",
+    "price": 395,
+    "imgUrl": "img/phones/motorola-bravo-with-motoblur.0.jpg",
+    "description": "MOTOROLA BRAVO™ with MOTOBLUR™ with its large 3.7-inch touchscreen and web-browsing capabilities is ...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfaf",
+    "name": "Samsung Mesmerize™ a Galaxy S™ phone",
+    "price": 102,
+    "imgUrl": "img/phones/samsung-mesmerize-a-galaxy-s-phone.0.jpg",
+    "description": "Experience entertainment in a whole new light. The stylish and slim Samsung Mesmerize™, with its viv...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfad",
+    "name": "Samsung Galaxy Tab™",
+    "price": 328,
+    "imgUrl": "img/phones/samsung-galaxy-tab.0.jpg",
+    "description": "Feel Free to Tab™. The Samsung Galaxy Tab™, the tablet device that delivers enhanced capabilities wi...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfae",
+    "name": "Samsung Gem™",
+    "price": 280,
+    "imgUrl": "img/phones/samsung-gem.0.jpg",
+    "description": "The Samsung Gem™ maps a route to a smarter mobile experience. By pairing one of the fastest processo...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfac",
+    "name": "Nexus S",
+    "price": 325,
+    "imgUrl": "img/phones/nexus-s.0.jpg",
+    "description": "Nexus S is the next generation of Nexus devices, co-developed by Google and Samsung. The latest Andr...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfb4",
+    "name": "T-Mobile myTouch 4G",
+    "price": 145,
+    "imgUrl": "img/phones/t-mobile-mytouch-4g.0.jpg",
+    "description": "The myTouch 4G lets you connect fast, communicate easily, and share—all on America’s largest 4G netw...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfb1",
+    "name": "Samsung Transform™",
+    "price": 420,
+    "imgUrl": "img/phones/samsung-transform.0.jpg",
+    "description": "Change your perspective.  The Samsung Transform™ is an Android powered device that delivers the trul...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfb2",
+    "name": "SANYO ZIO",
+    "price": 500,
+    "imgUrl": "img/phones/sanyo-zio.0.jpg",
+    "description": "Zio uses CDMA2000 1xEV-DO rev. A and Wi-Fi technologies and features a 3.5-inch WVGA touch-screen di...",
+    "average_rating": 0
+    },
+    {
+    "_id": "5bf537dca53801fa3459dfb3",
+    "name": "T-Mobile G2",
+    "price": 425,
+    "imgUrl": "img/phones/t-mobile-g2.0.jpg",
+    "description": "The T-Mobile G1 was the world's first Android-powered phone. Launched nearly two years ago, it creat...",
+    "average_rating": 0
+    }
+    ]
